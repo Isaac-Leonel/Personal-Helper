@@ -17,11 +17,11 @@ public class Idoso {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
-    private String NomeC;
+    private String nomeC;
     @Column(nullable = false)
-    private String CPF;
+    private String cpf;
     @Column(nullable = false)
-    private String Nascimento;
+    private Double nascimento;
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
