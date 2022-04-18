@@ -12,7 +12,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class cuidador {
+public class Cuidador {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
