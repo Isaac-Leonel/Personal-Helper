@@ -10,9 +10,10 @@ import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Setter
+
 @Getter
+@Setter
+@Entity
 public class Idoso {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
