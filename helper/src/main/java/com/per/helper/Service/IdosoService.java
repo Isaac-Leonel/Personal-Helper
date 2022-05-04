@@ -1,6 +1,7 @@
 package com.per.helper.Service;
 
 import java.util.InputMismatchException;
+import java.util.List;
 
 import com.per.helper.Entity.Idoso;
 import com.per.helper.Repository.IdosoRepository;
@@ -30,6 +31,11 @@ public class IdosoService {
         } catch (Exception e){
             return "Impossivel salvar! | " + e; 
         }
+    }
+    
+    public List<Object>  buscarIdoso(String cpf){
+        List<Object> lista = repository.dadosIdoso(cpf);
+        return lista;
     }
 
     public static boolean isCPF(String CPF) {
