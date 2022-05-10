@@ -2,7 +2,6 @@ package com.per.helper.Repository;
 
 import java.util.List;
 
-import com.per.dto.IdosoDto;
 import com.per.helper.Entity.Idoso;
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -2,9 +2,9 @@
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/personalhelper
+    url: jdbc:mysql://172.17.0.2:3306/personalhelper
     username: root
-    password:
+    password: root
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
