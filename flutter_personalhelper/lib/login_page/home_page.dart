@@ -24,7 +24,7 @@ class Login extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(top: 50),
+                padding: EdgeInsets.only(top: 30),
                 child: Text(
                   'LOGIN',
                   style: TextStyle(
@@ -41,8 +41,12 @@ class Login extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                     fontSize: 18),
               ),
-              const InputCad(
-                inputname: 'CPF',
+              // ignore: prefer_const_constructors
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: const InputCad(
+                  inputname: 'CPF',
+                ),
               ),
               const InputCad(inputname: 'Senha'),
               ButtonTheme(
