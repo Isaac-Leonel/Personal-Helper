@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../components/inputcad.dart';
@@ -21,15 +22,18 @@ class Login extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
             ),
-            const Text(
-              'CADASTRO',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25),
+            const Padding(
+              padding: EdgeInsets.only(top: 50),
+              child: Text(
+                'LOGIN',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25),
+              ),
             ),
             const Text(
-              'IDOSO',
+              'Digite seus dados para entrar',
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.white,
@@ -37,8 +41,40 @@ class Login extends StatelessWidget {
                   fontSize: 18),
             ),
             const InputCad(
-              inputname: 'Nome',
-            )
+              inputname: 'CPF',
+            ),
+            const InputCad(inputname: 'Senha'),
+            ButtonTheme(
+              height: 50.0,
+              child: ElevatedButton(
+                onPressed: () => {
+                  print("pressionei o botão"),
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF32A18A),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0)),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    "ENTRAR",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w300),
+                  ),
+                ),
+              ), //RaisedButtons
+            ),
+            TextButton(
+                onPressed: () {
+                  print('funciona');
+                },
+                child: const Text(
+                  'Ainda não possui uma conta? Cadastre-se',
+                  style: TextStyle(color: Colors.white),
+                ))
           ],
         ),
       ),
