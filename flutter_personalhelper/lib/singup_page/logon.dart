@@ -22,7 +22,7 @@ class Logon extends StatelessWidget {
               ),
             ),
             const Text(
-              'CADASTRO',
+              'aaaa',
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
