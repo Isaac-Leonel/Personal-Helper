@@ -31,6 +31,10 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+flutter_personalhelper/.dart_tool/package_config_subset
+flutter_personalhelper/.dart_tool/package_config.json
+flutter_personalhelper/.packages
+
 
 # Web related
 lib/generated_plugin_registrant.dart
