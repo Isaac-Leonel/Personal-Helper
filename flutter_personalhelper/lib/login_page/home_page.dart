@@ -37,7 +37,7 @@ class Login extends StatelessWidget {
                   fontSize: 18),
             ),
             const InputCad(
-              inputname: 'Email',
+              inputname: 'Nome',
             )
           ],
         ),
