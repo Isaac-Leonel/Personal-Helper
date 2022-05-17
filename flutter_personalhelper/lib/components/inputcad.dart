@@ -12,15 +12,22 @@ class InputCad extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.only(top: 15, left: 10),
+          child: Text(
+            inputname,
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w300, fontSize: 18),
+          ),
+        ),
+        SizedBox(
+          height: 30,
           child: TextFormField(
             decoration: InputDecoration(
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(30.0),
               ),
               filled: true,
               fillColor: Colors.white,
-              hintText: inputname,
             ),
             validator: (String? value) {
               if (value == null || value.isEmpty) {

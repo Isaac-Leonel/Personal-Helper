@@ -49,37 +49,42 @@ class Login extends StatelessWidget {
                 ),
               ),
               const InputCad(inputname: 'Senha'),
-              ButtonTheme(
-                height: 50.0,
-                child: ElevatedButton(
-                  onPressed: () => {
-                    print("pressionei o botão"),
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF32A18A),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      "ENTRAR",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w300),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: ButtonTheme(
+                  height: 50.0,
+                  child: ElevatedButton(
+                    onPressed: () => {
+                      print("pressionei o botão"),
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF32A18A),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
                     ),
-                  ),
-                ), //RaisedButtons
+                    child: const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Text(
+                        "ENTRAR",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300),
+                      ),
+                    ),
+                  ), //RaisedButtons
+                ),
               ),
               TextButton(
-                  onPressed: () {
-                    print('funciona');
-                  },
-                  child: const Text(
-                    'Ainda não possui uma conta? Cadastre-se',
-                    style: TextStyle(color: Colors.white),
-                  ))
+                onPressed: () {
+                  print('funciona');
+                  Navigator.of(context).pushNamed('/usertype');
+                },
+                child: const Text(
+                  'Ainda não possui uma conta? Cadastre-se',
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
             ],
           ),
         ),

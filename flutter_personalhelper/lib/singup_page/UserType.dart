@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class UserType extends StatelessWidget {
@@ -47,7 +48,9 @@ class UserType extends StatelessWidget {
                       elevation: 0,
                       shape: new RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/logon');
+                  },
                   child: Column(
                     children: [
                       SizedBox(
