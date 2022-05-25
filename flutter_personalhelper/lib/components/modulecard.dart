@@ -10,24 +10,37 @@ class ModuleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: 300,
-        height: 300,
-        color: const Color(0xFF32A18A),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed('/caixaremedio');
+      },
+      child: Container(
+        width: 150,
+        height: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: const Color(0xFF32A18A),
+          boxShadow: [
+            BoxShadow(color: const Color(0xFF32A18A), spreadRadius: 3),
+          ],
+        ),
         child: Center(
-          child: Column(
-            children: [
-              SizedBox(width: 20, height: 20, child: Image.asset(iconModule)),
-              Text(
-                textModule,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 15,
-                ),
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(
+                    width: 100, height: 100, child: Image.asset(iconModule)),
+                Text(
+                  textModule,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

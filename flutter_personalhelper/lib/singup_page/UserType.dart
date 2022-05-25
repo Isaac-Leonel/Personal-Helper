@@ -49,7 +49,7 @@ class UserType extends StatelessWidget {
                       shape: new RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100))),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/Edita');
+                    Navigator.of(context).pushNamed('/logon');
                   },
                   child: Column(
                     children: [

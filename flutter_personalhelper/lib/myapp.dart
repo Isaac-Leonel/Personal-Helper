@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Login(),
         '/usertype': (context) => const UserType(),
-        '/Edita': (context) => const Edita(),
         '/logon': (context) => const SingUp(),
-        '/dashboard': ((context) => Dashboard())
+        '/dashboard': ((context) => Dashboard()),
+        '/caixaremedio': ((context) => Edita())
       },
     );
   }
