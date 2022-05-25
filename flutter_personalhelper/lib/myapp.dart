@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_helper/dashboard/dashboard.dart';
 
 import 'login_page/home_page.dart';
 import 'singup_page/UserType.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         '/usertype': (context) => const UserType(),
         '/Edita': (context) => const Edita(),
         '/logon': (context) => const SingUp(),
+        '/dashboard': ((context) => Dashboard())
       },
     );
   }

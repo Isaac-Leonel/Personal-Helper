@@ -55,6 +55,7 @@ class Login extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => {
                     print("pressionei o botão"),
+                    Navigator.of(context).pushNamed('/dashboard')
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFF32A18A),
