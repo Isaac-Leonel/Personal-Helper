@@ -12,7 +12,7 @@ class InputCadLarg extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(left: 15),
+          padding: const EdgeInsets.only(top: 40, left: 15),
           child: Text(
             inputname,
             style: const TextStyle(
@@ -20,9 +20,9 @@ class InputCadLarg extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 90,
+          height: 50,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.only(left: 8, right: 8),
             child: TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
