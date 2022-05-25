@@ -65,7 +65,11 @@ flutter:
     - assets/img/idosocad.png
     - assets/img/cuidadorcad.png
     - assets/img/logoimg.png
-    - assets/img/clockicon.png    
+    - assets/img/clockicon.png
+    - assets/img/remedio.png
+    - assets/img/senhor.png
+    - assets/img/arrow.png 
+    - assets/img/config.png   
 
 
     
