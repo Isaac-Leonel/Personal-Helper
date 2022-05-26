@@ -17,31 +17,34 @@ class Edita extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              color: const Color(0xFF00261d),
-              height: 200,
-              child: Column(
-                children: [
-                  ProfileBar(),
-                  SizedBox(
-                      width: 80,
-                      height: 80,
-                      child: Image.asset(
-                        'assets/img/remedio.png',
-                      )),
-                  Row(
-                    children: [
-                      Text(
-                        'Nome Remedio',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      Icon(
-                        Icons.create_outlined,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                ],
+            Center(
+              child: Container(
+                color: const Color(0xFF00261d),
+                height: 200,
+                child: Column(
+                  children: [
+                    ProfileBar(),
+                    SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: Image.asset(
+                          'assets/img/remedio.png',
+                        )),
+                    Column(
+                      children: [
+                        Text(
+                          'Nome Remedio',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          textAlign: TextAlign.center,
+                        ),
+                        Icon(
+                          Icons.create_outlined,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             Column(
@@ -54,6 +57,15 @@ class Edita extends StatelessWidget {
                 const InputCad(inputname: 'Função'),
                 const InputCad(inputname: 'Tarja'),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: FloatingActionButton(
+                  child: Icon(Icons.task_alt),
+                  backgroundColor: const Color(0xFF32A18A),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/dashboard');
+                  }),
             ),
           ],
         ),
