@@ -26,7 +26,7 @@ class InputCadminr extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
                 filled: true,
                 fillColor: Colors.white,
