@@ -53,19 +53,24 @@ class Dashboard extends StatelessWidget {
               ],
             ),
           ),
-          Column(
-            children: [
-              // SizedBox(
-              //     child: Image.asset(
-              //   'assets/img/backgrounddash.png',
-              //   fit: BoxFit.fitWidth,
-              //   width: MediaQuery.of(context).size.width,
-              //   height: 400,
-              // )),
-              ModuleCard(
-                  iconModule: 'assets/img/caixaderemedio.png',
-                  textModule: 'Caixa de Remedio')
-            ],
+          Container(
+            height: 380,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/img/backgrounddash.png"),
+                  fit: BoxFit.cover),
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: ModuleCard(
+                      iconModule: 'assets/img/caixaderemedio.png',
+                      textModule: 'Caixa de Remedio'),
+                )
+              ],
+            ),
           ),
           SnackIdoso(),
         ],

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_helper/dashboard/dashboard.dart';
+import 'package:personal_helper/pages/dashboard/dashboard.dart';
+import 'package:personal_helper/pages/login_page/home_page.dart';
+import 'package:personal_helper/pages/singup_page/UserType.dart';
+import 'package:personal_helper/pages/singup_page/singup.dart';
 
-import 'login_page/home_page.dart';
-import 'singup_page/UserType.dart';
-import 'singup_page/singup.dart';
-import 'dashboard/edita_remedio.dart';
+import 'pages/dashboard/edita_remedio.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Login(),
         '/usertype': (context) => const UserType(),
         '/logon': (context) => const SingUp(),
-        '/dashboard': ((context) => Dashboard()),
-        '/caixaremedio': ((context) => Edita())
+        '/dashboard': ((context) => const Dashboard()),
+        '/caixaremedio': ((context) => const Edita())
       },
     );
   }

@@ -31,26 +31,34 @@ class HorarioAlerta extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(3.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
-                alertTime + ' | ',
-                style: TextStyle(color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  alertTime + ' | ',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-              Row(
-                children: [
-                  SizedBox(
-                      child: Image.asset(
-                    alertIcon,
-                    fit: BoxFit.fitWidth,
-                    width: 20,
-                    height: 20,
-                  )),
-                  Text(
-                    alertName,
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Row(
+                  children: [
+                    SizedBox(
+                        child: Image.asset(
+                      alertIcon,
+                      fit: BoxFit.fitWidth,
+                      width: 20,
+                      height: 20,
+                    )),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        alertName,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           ),

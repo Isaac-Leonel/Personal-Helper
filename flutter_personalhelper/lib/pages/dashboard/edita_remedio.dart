@@ -3,10 +3,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:personal_helper/components/profilebar.dart';
-import '../components/inputcad.dart';
-import '../components/inputcads.dart';
-import '../components/inputcadmin.dart';
-import '../components/inputcadminr.dart';
+
+import '../../components/inputcad.dart';
+import '../../components/inputcads.dart';
 
 class Edita extends StatelessWidget {
   const Edita({Key? key}) : super(key: key);

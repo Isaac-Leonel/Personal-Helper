@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../components/inputcad.dart';
+import '../../components/inputcad.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
