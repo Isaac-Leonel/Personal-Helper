@@ -22,7 +22,10 @@ class Edita extends StatelessWidget {
                 height: 200,
                 child: Column(
                   children: [
-                    ProfileBar(),
+                    ProfileBar(
+                      exibirSaud: false,
+                      exibirBack: true,
+                    ),
                     SizedBox(
                         width: 80,
                         height: 80,

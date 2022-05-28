@@ -1,25 +1,22 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/models/idoso.dart';
+import 'package:flutter/services.dart' as rootBundle;
 
 class SingUpController {
-  final Idoso idoso;
-  String urlIdoso = 'https://localhost:3306/cadastrarIdoso';
+  Future<Idoso> fetchAlbum() async {
+    final response = await http.get(Uri.parse(''));
 
-  SingUpController(this.idoso);
-
-  postIdoso() async {
-    try {
-      var response = await http.post(Uri.parse(urlIdoso), body: {
-        "nome": idoso.nome,
-        "cpf": idoso.cpf,
-        "nascimento": idoso.nascimento,
-        "email": idoso.email,
-        "senha": idoso.senha,
-        "rg": idoso.rg
-      });
-    } catch (e) {
-      // ignore: avoid_print
-      print(e);
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      print(Idoso.fromJson(jsonDecode(response.body)));
+      return Idoso.fromJson(jsonDecode(response.body));
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load album');
     }
   }
 }

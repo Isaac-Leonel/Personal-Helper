@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => const Login(),
+        '/': (context) => Login(),
         '/usertype': (context) => const UserType(),
         '/logon': (context) => const SingUp(),
-        '/dashboard': ((context) => const Dashboard()),
+        '/dashboard': ((context) => Dashboard()),
         '/caixaremedio': ((context) => const Edita())
       },
     );

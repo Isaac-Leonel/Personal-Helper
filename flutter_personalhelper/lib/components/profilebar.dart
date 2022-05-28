@@ -1,12 +1,19 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class ProfileBar extends StatelessWidget {
-  const ProfileBar({Key? key}) : super(key: key);
+  const ProfileBar(
+      {Key? key, required this.exibirSaud, required this.exibirBack})
+      : super(key: key);
+
+  final bool exibirSaud;
+  final bool exibirBack;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(05.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -19,16 +26,29 @@ class ProfileBar extends StatelessWidget {
                 width: 30,
                 height: 30,
               )),
-              const Text(
-                'Olá! Pedro',
-                style: TextStyle(color: Colors.white),
-              )
+              exibirSaud
+                  ? Text(
+                      'Olá! Pedro',
+                      style: TextStyle(color: Colors.white),
+                    )
+                  : Text(''),
             ],
           ),
-          const Icon(
-            Icons.settings,
+          exibirBack
+              ? IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.white,
+                  iconSize: 30,
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/dashboard');
+                  },
+                )
+              : Icon(null),
+          IconButton(
+            icon: Icon(Icons.settings),
             color: Colors.white,
-            size: 30,
+            iconSize: 30,
+            onPressed: () {},
           )
         ],
       ),

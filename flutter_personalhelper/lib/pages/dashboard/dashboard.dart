@@ -10,7 +10,7 @@ class Dashboard extends StatelessWidget {
   // final DateTime now = DateTime.now();
   // final String formattedDate = get DateFormat('kk:mm:ss \n EEE d MMM').format(now)
 
-  const Dashboard({Key? key}) : super(key: key);
+  Dashboard({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,10 @@ class Dashboard extends StatelessWidget {
             color: const Color(0xFF00261d),
             child: Column(
               children: [
-                const ProfileBar(),
+                const ProfileBar(
+                  exibirSaud: true,
+                  exibirBack: false,
+                ),
                 Center(
                   child: Column(
                     // ignore: prefer_const_literals_to_create_immutables

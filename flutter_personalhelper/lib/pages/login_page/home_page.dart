@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_helper/models/idoso.dart';
 
 import '../../components/inputcad.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+  late Future<Idoso> futureIdoso;
 
   @override
   Widget build(BuildContext context) {
