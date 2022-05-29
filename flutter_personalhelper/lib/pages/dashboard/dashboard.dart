@@ -5,12 +5,31 @@ import 'package:personal_helper/components/modulecard.dart';
 import 'package:personal_helper/components/profilebar.dart';
 import 'package:personal_helper/components/snackbar.dart';
 
-class Dashboard extends StatelessWidget {
-  // Get the time
-  // final DateTime now = DateTime.now();
-  // final String formattedDate = get DateFormat('kk:mm:ss \n EEE d MMM').format(now)
+String getDate() {
+  DateTime now = DateTime.now();
+  String formattedDate = DateFormat('kk:mm').format(now);
 
+  return formattedDate;
+}
+
+class Dashboard extends StatefulWidget {
   Dashboard({Key? key}) : super(key: key);
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  // Get the time
+  @override
+  void initState() {
+    getDate();
+    super.initState();
+  }
+
+  final String horarioS = "O horario atual é: " + getDate();
+  final String horario = getDate();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,16 +41,19 @@ class Dashboard extends StatelessWidget {
             color: const Color(0xFF00261d),
             child: Column(
               children: [
-                const ProfileBar(
-                  exibirSaud: true,
-                  exibirBack: false,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: const ProfileBar(
+                    exibirSaud: true,
+                    exibirBack: false,
+                  ),
                 ),
                 Center(
                   child: Column(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Text(
-                        'O horario atual é: ',
+                      Text(
+                        horarioS,
                         style: TextStyle(color: Colors.white),
                       ),
                       // ignore: prefer_const_constructors
@@ -66,11 +88,37 @@ class Dashboard extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: ModuleCard(
-                      iconModule: 'assets/img/caixaderemedio.png',
-                      textModule: 'Caixa de Remedio'),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                  ],
                 )
               ],
             ),

@@ -1,15 +1,41 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:personal_helper/models/idoso.dart';
+import 'package:http/http.dart' as http;
+import 'package:personal_helper/pages/dashboard/dashboard.dart';
 
 import '../../components/inputcad.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   late Future<Idoso> futureIdoso;
 
   @override
   Widget build(BuildContext context) {
+    final loginController = TextEditingController();
+    final senhaController = TextEditingController();
+
+    @override
+    void dispose() {
+      // limpa o controller quando for liberado
+      loginController.dispose();
+      super.dispose();
+    }
+
+    Future<Idoso> fetchAlbum(String Login, String Senha) async {
+      print(Login + Senha);
+      final response = await http
+          .get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
+      var body = json.decode(response.body);
+      Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
+      return body;
+    }
+
     return Scaffold(
       backgroundColor: Color(0xFF00261d),
       body: SingleChildScrollView(
@@ -44,20 +70,51 @@ class Login extends StatelessWidget {
             // ignore: prefer_const_constructors
             Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: const InputCad(
-                inputname: 'CPF',
+              child: SizedBox(
+                height: 40,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: TextField(
+                    controller: loginController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                  ),
+                ),
               ),
             ),
-            const InputCad(inputname: 'Senha'),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: SizedBox(
+                height: 40,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: TextField(
+                    controller: senhaController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: ButtonTheme(
                 height: 50.0,
                 child: ElevatedButton(
-                  onPressed: () => {
-                    print("pressionei o botão"),
-                    Navigator.of(context).pushNamed('/dashboard')
-                  },
+                  onPressed: () =>
+                      {fetchAlbum(loginController.text, senhaController.text)},
+                  //fetchAlbum(loginController.text, senhaController.text)
+                  //Navigator.of(context).pushNamed('/usertype')
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFF32A18A),
                     shape: RoundedRectangleBorder(
