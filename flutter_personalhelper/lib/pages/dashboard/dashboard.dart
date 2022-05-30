@@ -79,49 +79,45 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Container(
-            height: 380,
+            height: 390,
             width: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/img/backgrounddash.png"),
                   fit: BoxFit.cover),
             ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: ModuleCard(
-                          iconModule: 'assets/img/caixaderemedio.png',
-                          textModule: 'Caixa de Remedio'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: ModuleCard(
-                          iconModule: 'assets/img/caixaderemedio.png',
-                          textModule: 'Caixa de Remedio'),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: ModuleCard(
-                          iconModule: 'assets/img/caixaderemedio.png',
-                          textModule: 'Caixa de Remedio'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: ModuleCard(
-                          iconModule: 'assets/img/caixaderemedio.png',
-                          textModule: 'Caixa de Remedio'),
-                    ),
-                  ],
-                )
-              ],
-            ),
+            // ignore: prefer_const_literals_to_create_immutables
+            child: GridView.count(
+                crossAxisCount: 2,
+                padding: const EdgeInsets.all(30),
+
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ModuleCard(
+                        iconModule: 'assets/img/caixaderemedio.png',
+                        textModule: 'Caixa de Remedio'),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ModuleCard(
+                        iconModule: 'assets/img/caixaderemedio.png',
+                        textModule: 'Caixa de Remedio'),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ModuleCard(
+                        iconModule: 'assets/img/caixaderemedio.png',
+                        textModule: 'Caixa de Remedio'),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ModuleCard(
+                        iconModule: 'assets/img/caixaderemedio.png',
+                        textModule: 'Caixa de Remedio'),
+                  ),
+                ]),
           ),
           SnackIdoso(),
         ],
