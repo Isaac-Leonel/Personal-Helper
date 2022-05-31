@@ -7,7 +7,7 @@ import 'package:personal_helper/components/snackbar.dart';
 
 String getDate() {
   DateTime now = DateTime.now();
-  String formattedDate = DateFormat('kk:mm').format(now);
+  String formattedDate = DateFormat('HH:mm').format(now);
 
   return formattedDate;
 }

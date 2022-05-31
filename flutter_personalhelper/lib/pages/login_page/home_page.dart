@@ -29,10 +29,15 @@ class _LoginState extends State<Login> {
 
     Future<Idoso> fetchAlbum(String Login, String Senha) async {
       print(Login + Senha);
-      final response = await http
-          .get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
+      final response = await http.get(Uri.parse(
+          'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
       var body = json.decode(response.body);
-      Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
+      print(body);
+      if (response.statusCode == 200) {
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
+      } else {
+        print('Login Incorreto');
+      }
       return body;
     }
 
@@ -111,8 +116,10 @@ class _LoginState extends State<Login> {
               child: ButtonTheme(
                 height: 50.0,
                 child: ElevatedButton(
-                  onPressed: () =>
-                      {fetchAlbum(loginController.text, senhaController.text)},
+                  onPressed: () => {
+                    // fetchAlbum(loginController.text, senhaController.text)
+                    Navigator.of(context).pushNamed('/dashboard')
+                  },
                   //fetchAlbum(loginController.text, senhaController.text)
                   //Navigator.of(context).pushNamed('/usertype')
                   style: ElevatedButton.styleFrom(

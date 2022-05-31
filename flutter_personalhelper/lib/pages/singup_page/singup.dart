@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/cadastro_form.dart';
 import '../../components/inputcad.dart';
 
 class SingUp extends StatelessWidget {
@@ -37,41 +38,7 @@ class SingUp extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   fontSize: 18),
             ),
-            SingleChildScrollView(
-              child: Column(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const InputCad(
-                    inputname: 'Nome Completo',
-                  ),
-                  const InputCad(
-                    inputname: 'CPF',
-                  ),
-                  const InputCad(
-                    inputname: 'RG',
-                  ),
-                  const InputCad(
-                    inputname: 'Data de Nascimento',
-                  ),
-                  const InputCad(
-                    inputname: 'Email',
-                  ),
-                  const InputCad(
-                    inputname: 'Senha',
-                  ),
-                  const InputCad(
-                    inputname: 'Confirmar Senha',
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FloatingActionButton(
-                  child: Icon(Icons.task_alt),
-                  backgroundColor: const Color(0xFF32A18A),
-                  onPressed: () {}),
-            ),
+            CadastroForm(),
           ],
         ),
       ),

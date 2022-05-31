@@ -1,13 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class InputCad extends StatelessWidget {
-  const InputCad({
-    Key? key,
-    required this.inputname,
-  }) : super(key: key);
+class InputCad extends StatefulWidget {
+  const InputCad({Key? key, required this.inputname}) : super(key: key);
 
   final String inputname;
+
+  @override
+  State<InputCad> createState() => _InputCadState();
+}
+
+class _InputCadState extends State<InputCad> {
+  final controllerInput = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,7 @@ class InputCad extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 15, left: 15),
           child: Text(
-            inputname,
+            widget.inputname,
             style: const TextStyle(
                 color: Colors.white, fontWeight: FontWeight.w300, fontSize: 18),
           ),

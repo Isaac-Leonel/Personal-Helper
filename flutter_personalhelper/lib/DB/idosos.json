@@ -1,9 +1,12 @@
 {
-	"name":"P Valim",
-	"cpf":"14603875622",
+	"name":"Isaac",
+	"cpf":"01878129694",
 	"birthday":"15/06/1980",
 	"email":"gabriel@gmail.com",
 	"password":"jhgsbdjkd",
-	"image":"skajjkdajdakdkadjkajd.jpg",
-	"rg":"123.442-323"
+	"rg":"123.442-323",
+	"street": "dsadas",
+	"neighborhood": "bairro",
+	"city": "Betim",
+	"number": "3"
 }
