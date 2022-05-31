@@ -63,7 +63,7 @@ class caixaRemedio extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(180.0),
+              padding: const EdgeInsets.only(top: 150),
               child: FloatingActionButton(
                   child: Icon(Icons.add),
                   backgroundColor: const Color(0xFF32A18A),

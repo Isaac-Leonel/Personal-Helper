@@ -79,7 +79,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Container(
-            height: 390,
+            height: 365,
             width: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(

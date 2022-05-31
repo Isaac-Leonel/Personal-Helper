@@ -21,14 +21,13 @@ class ModuleCard extends StatelessWidget {
         Navigator.of(context).pushNamed('/edita_remedio');
       },
       child: Container(
-        width: 115,
-        height: 200,
+        width: 130,
+        height: 180,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: const Color(0xFF32A18A),
-          boxShadow: [
-            BoxShadow(color: const Color(0xFF023E2F), spreadRadius: 3),
-          ],
+          image: const DecorationImage(
+              image: AssetImage("assets/img/onda.png"), fit: BoxFit.cover),
         ),
         child: Center(
           child: Padding(
@@ -49,8 +48,8 @@ class ModuleCard extends StatelessWidget {
                   textModule1,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                    fontWeight: FontWeight.w300,
+                    fontSize: 18,
                   ),
                 ),
                 Text(

@@ -32,7 +32,9 @@ class SnackIdoso extends StatelessWidget {
                 child: FloatingActionButton(
                     child: Icon(Icons.monitor_heart_outlined),
                     backgroundColor: const Color(0xFF32A18A),
-                    onPressed: () {}),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/dados_medicos');
+                    }),
               ),
             ),
             Column(
