@@ -3,25 +3,24 @@
 import 'package:flutter/material.dart';
 
 import 'package:personal_helper/components/profilebar.dart';
+import 'package:personal_helper/components/modulecardRemedio.dart';
 
-import '../../components/inputcad.dart';
-import '../../components/inputcads.dart';
-
-class Edita extends StatelessWidget {
-  const Edita({Key? key}) : super(key: key);
+class caixaRemedio extends StatelessWidget {
+  const caixaRemedio({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF237C6A),
+      backgroundColor: const Color(0xFF00261d),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Center(
               child: Container(
-                color: const Color(0xFF00261d),
+                color: const Color(0xFF237C6A),
                 height: 200,
                 child: Column(
                   children: [
+                    // ignore: prefer_const_constructors
                     ProfileBar(
                       exibirSaud: false,
                       exibirBack: true,
@@ -30,43 +29,46 @@ class Edita extends StatelessWidget {
                         width: 80,
                         height: 80,
                         child: Image.asset(
-                          'assets/img/remedio.png',
+                          'assets/img/caixaderemedio.png',
                         )),
                     Column(
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
+                        // ignore: prefer_const_constructors
                         Text(
-                          'Nome Remedio',
+                          'Caixa de Remedio',
                           style: TextStyle(color: Colors.white, fontSize: 20),
                           textAlign: TextAlign.center,
                         ),
-                        Icon(
-                          Icons.create_outlined,
-                          color: Colors.white,
-                        )
                       ],
                     ),
                   ],
                 ),
               ),
             ),
-            Column(
-              children: [
-                const InputCadLarg(inputname: 'Descriçao'),
-                const InputCad(inputname: 'Quantidade'),
-                const InputCad(inputname: 'Vencimento'),
-                const InputCad(inputname: 'Horario de Administração'),
-                const InputCad(inputname: 'Horario de Administração 2'),
-                const InputCad(inputname: 'Função'),
-                const InputCad(inputname: 'Tarja'),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Column(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ModuleCard(
+                      textModule: "PARACETAMOL",
+                      iconModule: 'assets/img/remedio.png',
+                      textModule1: "Comprimidos",
+                      textModule2: "50 | 100",
+                    ),
+                  ),
+                ],
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(180.0),
               child: FloatingActionButton(
-                  child: Icon(Icons.task_alt),
+                  child: Icon(Icons.add),
                   backgroundColor: const Color(0xFF32A18A),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/caixaremedio');
+                    Navigator.of(context).pushNamed('/edita_remedio');
                   }),
             ),
           ],

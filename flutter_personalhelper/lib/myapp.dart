@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_helper/pages/dashboard/caixaRemedio.dart';
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
+import 'package:personal_helper/pages/dashboard/edita_remedio.dart';
 import 'package:personal_helper/pages/login_page/home_page.dart';
 import 'package:personal_helper/pages/singup_page/UserType.dart';
 import 'package:personal_helper/pages/singup_page/singup.dart';
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
         '/usertype': (context) => const UserType(),
         '/logon': (context) => const SingUp(),
         '/dashboard': ((context) => Dashboard()),
-        '/caixaremedio': ((context) => const Edita())
+        '/caixaremedio': ((context) => const caixaRemedio()),
+        '/edita_remedio': ((context) => const Edita())
       },
     );
   }
