@@ -6,7 +6,6 @@ import 'package:personal_helper/pages/dashboard/dashboard.dart';
 import 'package:personal_helper/pages/dashboard/edita_remedio.dart';
 import 'package:personal_helper/pages/login_page/home_page.dart';
 import 'package:personal_helper/pages/singup_page/UserType.dart';
-import 'package:personal_helper/pages/singup_page/dados_medicos.dart';
 import 'package:personal_helper/pages/singup_page/singup.dart';
 
 import 'components/tela_confirmação.dart';
@@ -23,7 +22,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => Login(),
         '/usertype': (context) => const UserType(),
         '/logon': (context) => const SingUp(),
-        '/dashboard': ((context) => Dashboard()),
+        '/dashboard': ((context) => Dashboard(
+              teste: '',
+            )),
         '/caixaremedio': ((context) => const caixaRemedio()),
         '/edita_remedio': ((context) => const Edita()),
         '/dados_medicos': ((context) => const dados()),
