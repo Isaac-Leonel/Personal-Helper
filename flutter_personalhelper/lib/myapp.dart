@@ -22,9 +22,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => Login(),
         '/usertype': (context) => const UserType(),
         '/logon': (context) => const SingUp(),
-        '/dashboard': ((context) => Dashboard(
-              teste: '',
-            )),
+        '/dashboard': ((context) => Dashboard()),
         '/caixaremedio': ((context) => const caixaRemedio()),
         '/edita_remedio': ((context) => const Edita()),
         '/dados_medicos': ((context) => const dados()),

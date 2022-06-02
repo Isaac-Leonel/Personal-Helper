@@ -25,10 +25,11 @@ class _LoginState extends State<Login> {
   retrieveStringValue() async {
     final prefs = await SharedPreferences.getInstance();
     String? value = prefs.getString("cpf");
+    print(value);
     if (value == null) {
       print('Gentileza informar seus dados');
     } else {
-      fetchGetUserByCpf(value);
+      return value;
     }
   }
 
@@ -47,15 +48,35 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final loginController = TextEditingController();
     final senhaController = TextEditingController();
-
-    Future<Idoso> fetchAlbum(String Login, String Senha) async {
-      print(Login + Senha);
+/*     Future<Idoso> fetchGetUserByCpf(String cpf) async {
       final response = await http.get(Uri.parse(
-          'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
+          'https://5d02-2804-18-4016-c77f-87e6-993b-38c9-6f24.sa.ngrok.io/api/ph/elderly/look_for/${cpf}'));
       var body = json.decode(response.body);
       print(body);
       if (response.statusCode == 200) {
         saveStringValue(body);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => Dashboard(
+                      teste: body,
+                    )));
+      } else {
+        print('Login Incorreto');
+      }
+      return body;
+    }
+ */
+
+    Future<String> fetchAlbum(String Login, String Senha) async {
+      print(Login + Senha);
+      final response = await http.get(Uri.parse(
+          'https://5d02-2804-18-4016-c77f-87e6-993b-38c9-6f24.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
+      var body = response.body;
+      print(body);
+      if (response.statusCode == 200) {
+        saveStringValue(body);
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
       } else {
         print('Login Incorreto');
       }
@@ -103,12 +124,15 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     controller: loginController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'E-MAIL',
+                        prefixIcon: Icon(
+                          Icons.person,
+                        )),
                   ),
                 ),
               ),
@@ -122,12 +146,13 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     controller: senhaController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'SENHA',
+                        prefixIcon: Icon(Icons.vpn_key)),
                   ),
                 ),
               ),
@@ -175,24 +200,5 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
-  }
-
-  Future<Idoso> fetchGetUserByCpf(String cpf) async {
-    final response = await http.get(Uri.parse(
-        'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/validate_login/'));
-    var body = json.decode(response.body);
-    print(body);
-    if (response.statusCode == 200) {
-      saveStringValue(body);
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (_) => Dashboard(
-                    teste: body,
-                  )));
-    } else {
-      print('Login Incorreto');
-    }
-    return body;
   }
 }

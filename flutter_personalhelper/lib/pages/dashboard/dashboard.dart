@@ -13,9 +13,7 @@ String getDate() {
 }
 
 class Dashboard extends StatefulWidget {
-  Dashboard({Key? key, required this.teste}) : super(key: key);
-
-  final String teste;
+  Dashboard({Key? key}) : super(key: key);
 
   @override
   State<Dashboard> createState() => _DashboardState();

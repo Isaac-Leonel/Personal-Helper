@@ -26,11 +26,11 @@ class CadastroForm extends StatelessWidget {
     final numeroController = TextEditingController();
     final confirmarSenhaController = TextEditingController();
 
-    Future<Idoso> postIdoso() async {
+    Future<String> postIdoso() async {
       HttpOverrides.global = MyHttpOverrides();
       final response = await http.post(
           Uri.parse(
-              'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/save'),
+              'https://5d02-2804-18-4016-c77f-87e6-993b-38c9-6f24.sa.ngrok.io/api/ph/elderly/save'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },
@@ -46,12 +46,12 @@ class CadastroForm extends StatelessWidget {
             "city": cidadeController.text,
             "number": numeroController.text
           }));
-      var body = response.body;
+      var body = json.decode(response.body);
       print(body);
       if (response.statusCode == 200) {
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => TelaConfirmacao()));
-        return Idoso.fromJson(jsonDecode(response.body));
+        return body;
       } else {
         throw Exception('Deu ruim!');
       }
