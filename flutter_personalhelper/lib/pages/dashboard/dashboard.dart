@@ -74,7 +74,7 @@ class _DashboardState extends State<Dashboard> {
                           alertTime: '17:00'),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
