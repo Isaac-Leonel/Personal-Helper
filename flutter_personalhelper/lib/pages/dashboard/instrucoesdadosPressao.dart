@@ -1,6 +1,4 @@
 // ignore_for_file: avoid_print
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class Pressao extends StatelessWidget {
@@ -110,15 +108,29 @@ class Pressao extends StatelessWidget {
                             fit: BoxFit.cover),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40),
-                      child: FloatingActionButton(
-                          child: Icon(Icons.add_a_photo),
-                          backgroundColor: const Color(0xFF00261D),
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed('/instrucoesdadosPressao');
-                          }),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 70),
+                          child: FloatingActionButton(
+                            child: Icon(Icons.add_home_outlined),
+                            backgroundColor: const Color(0xFF00261D),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed('/dados_medicos');
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(50),
+                          child: FloatingActionButton(
+                            child: const Icon(Icons.add_a_photo),
+                            backgroundColor: const Color(0xFF00261D),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed('/dashboard');
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
