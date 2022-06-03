@@ -44,7 +44,7 @@ class Controle3 extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 100),
+                      padding: const EdgeInsets.only(left: 117),
                       child: FloatingActionButton(
                           child: Icon(Icons.add_a_photo),
                           backgroundColor: const Color(0xFF32A18A),
