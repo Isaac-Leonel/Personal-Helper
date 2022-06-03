@@ -87,37 +87,37 @@ class _DashboardState extends State<Dashboard> {
                   fit: BoxFit.cover),
             ),
             // ignore: prefer_const_literals_to_create_immutables
-            child: GridView.count(
-                crossAxisCount: 2,
-                padding: const EdgeInsets.all(30),
+            child: Center(
+              child: Wrap(
 
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ModuleCard(
-                        iconModule: 'assets/img/caixaderemedio.png',
-                        textModule: 'Caixa de Remedio'),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ModuleCard(
-                        iconModule: 'assets/img/caixaderemedio.png',
-                        textModule: 'Caixa de Remedio'),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ModuleCard(
-                        iconModule: 'assets/img/caixaderemedio.png',
-                        textModule: 'Caixa de Remedio'),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ModuleCard(
-                        iconModule: 'assets/img/caixaderemedio.png',
-                        textModule: 'Caixa de Remedio'),
-                  ),
-                ]),
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: ModuleCard(
+                          iconModule: 'assets/img/caixaderemedio.png',
+                          textModule: 'Caixa de Remedio'),
+                    ),
+                  ]),
+            ),
           ),
           SnackIdoso(),
         ],

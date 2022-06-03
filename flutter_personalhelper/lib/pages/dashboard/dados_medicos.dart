@@ -25,7 +25,7 @@ class dados extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: const ProfileBar(
-                        exibirSaud: false,
+                        exibirSaud: true,
                         exibirBack: false,
                       ),
                     ),

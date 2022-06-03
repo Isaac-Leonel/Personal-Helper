@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ModuleCard extends StatelessWidget {
-  const ModuleCard(
+class ModuleCardRemedio extends StatelessWidget {
+  const ModuleCardRemedio(
       {Key? key,
       required this.iconModule,
       required this.textModule,

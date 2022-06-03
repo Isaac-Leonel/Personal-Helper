@@ -6,7 +6,6 @@ import 'package:personal_helper/pages/dashboard/dashboard.dart';
 import 'package:personal_helper/pages/dashboard/edita_remedio.dart';
 import 'package:personal_helper/pages/login_page/home_page.dart';
 import 'package:personal_helper/pages/singup_page/UserType.dart';
-import 'package:personal_helper/pages/singup_page/dados_medicos.dart';
 import 'package:personal_helper/pages/singup_page/singup.dart';
 
 import 'components/tela_confirmação.dart';
