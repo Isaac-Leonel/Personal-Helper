@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:personal_helper/models/idoso.dart';
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../components/inputcad.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
-
   @override
   State<Login> createState() => _LoginState();
 }
@@ -16,66 +15,25 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   late Future<Idoso> futureIdoso;
 
-  saveStringValue(String cpf) async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString("cpf", cpf);
-    retrieveStringValue();
-  }
-
-  retrieveStringValue() async {
-    final prefs = await SharedPreferences.getInstance();
-    String? value = prefs.getString("cpf");
-    print(value);
-    if (value == null) {
-      print('Gentileza informar seus dados');
-    } else {
-      return value;
-    }
-  }
-
-  @override
-  void initState() {
-    retrieveStringValue();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     final loginController = TextEditingController();
     final senhaController = TextEditingController();
-/*     Future<Idoso> fetchGetUserByCpf(String cpf) async {
+
+    @override
+    void dispose() {
+      // limpa o controller quando for liberado
+      loginController.dispose();
+      super.dispose();
+    }
+
+    Future<Idoso> fetchAlbum(String Login, String Senha) async {
+      print(Login + Senha);
       final response = await http.get(Uri.parse(
-          'https://5d02-2804-18-4016-c77f-87e6-993b-38c9-6f24.sa.ngrok.io/api/ph/elderly/look_for/${cpf}'));
+          'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
       var body = json.decode(response.body);
       print(body);
       if (response.statusCode == 200) {
-        saveStringValue(body);
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (_) => Dashboard(
-                      teste: body,
-                    )));
-      } else {
-        print('Login Incorreto');
-      }
-      return body;
-    }
- */
-
-    Future<String> fetchAlbum(String Login, String Senha) async {
-      print(Login + Senha);
-      final response = await http.get(Uri.parse(
-          'https://5d02-2804-18-4016-c77f-87e6-993b-38c9-6f24.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
-      var body = response.body;
-      print(body);
-      if (response.statusCode == 200) {
-        saveStringValue(body);
         Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
       } else {
         print('Login Incorreto');
@@ -124,15 +82,12 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     controller: loginController,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: 'E-MAIL',
-                        prefixIcon: Icon(
-                          Icons.person,
-                        )),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -146,13 +101,12 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     controller: senhaController,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: 'SENHA',
-                        prefixIcon: Icon(Icons.vpn_key)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -163,8 +117,8 @@ class _LoginState extends State<Login> {
                 height: 50.0,
                 child: ElevatedButton(
                   onPressed: () => {
-                    fetchAlbum(loginController.text, senhaController.text)
-                    // Navigator.of(context).pushNamed('/dashboard'),
+                    // fetchAlbum(loginController.text, senhaController.text)
+                    Navigator.of(context).pushNamed('/dashboard')
                   },
                   //fetchAlbum(loginController.text, senhaController.text)
                   //Navigator.of(context).pushNamed('/usertype')

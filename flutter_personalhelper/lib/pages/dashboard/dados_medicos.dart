@@ -3,6 +3,8 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:personal_helper/components/controleidoso.dart';
+import 'package:personal_helper/components/controleidoso2.dart';
+import 'package:personal_helper/components/controleidoso3.dart';
 import 'package:personal_helper/components/profilebar.dart';
 
 class dados extends StatelessWidget {
@@ -74,9 +76,17 @@ class dados extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
+                // ignore: prefer_const_constructors
                 Controle(
-                  alertName: 'Medição de pressão arterial',
-                  alertIcon: 'assets/img/remedio1.png',
+                  alertName: 'Medição de pressão ',
+                ),
+                // ignore: prefer_const_constructors
+                Controle(
+                  alertName2: 'Medidor de Glicemia',
+                ),
+                // ignore: prefer_const_constructors
+                Controle(
+                  alertName3: 'Termometro Clinico  ',
                 ),
               ],
             )

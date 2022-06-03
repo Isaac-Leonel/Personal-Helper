@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Controle extends StatelessWidget {
-  const Controle({
+class Controle2 extends StatelessWidget {
+  const Controle2({
     Key? key,
-    required this.alertName,
+    required this.alertName2,
   }) : super(key: key);
 
-  final String alertName;
+  final String alertName2;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class Controle extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 10, top: 15),
                       child: Text(
-                        alertName,
+                        alertName2,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
