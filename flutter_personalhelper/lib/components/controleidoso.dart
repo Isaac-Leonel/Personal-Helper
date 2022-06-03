@@ -1,13 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Controle extends StatelessWidget {
   const Controle({
     Key? key,
     required this.alertName,
+    required this.rota,
+    required this.hero,
   }) : super(key: key);
 
   final String alertName;
+  final String rota;
+  final String hero;
 
   @override
   Widget build(BuildContext context) {
@@ -25,37 +28,25 @@ class Controle extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Wrap(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Wrap(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 20),
-                      child: Text(
-                        alertName,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50),
-                      child: FloatingActionButton(
-                          child: Icon(Icons.add_a_photo),
-                          backgroundColor: const Color(0xFF32A18A),
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed('/instrucoesdadosPressao');
-                          }),
-                    ),
-                  ],
+              Text(
+                alertName,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
+              FloatingActionButton(
+                  heroTag: hero,
+                  child: Icon(Icons.add_a_photo),
+                  backgroundColor: const Color(0xFF32A18A),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(rota);
+                  }),
             ],
           ),
         ),

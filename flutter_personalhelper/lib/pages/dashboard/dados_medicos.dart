@@ -3,8 +3,6 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:personal_helper/components/controleidoso.dart';
-import 'package:personal_helper/components/controleidoso2.dart';
-import 'package:personal_helper/components/controleidoso3.dart';
 
 import 'package:personal_helper/components/profilebar.dart';
 
@@ -40,6 +38,7 @@ class dados extends StatelessWidget {
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 FloatingActionButton(
+                    heroTag: "btn2",
                     child: const Icon(Icons.arrow_downward),
                     backgroundColor: const Color(0xFF32A18A),
                     onPressed: () {
@@ -80,14 +79,18 @@ class dados extends StatelessWidget {
                 // ignore: prefer_const_constructors
                 Controle(
                   alertName: 'Medição de pressão arterial',
+                  hero: 'btn1',
+                  rota: '/instrucoesdadosPressao',
                 ),
-                // ignore: prefer_const_constructors
-                Controle2(
-                  alertName2: 'Medidor de Glicemia',
+                Controle(
+                  alertName: 'Medidor de glicemia',
+                  hero: 'btn2',
+                  rota: '/instrucoesdadosPressao',
                 ),
-                // ignore: prefer_const_constructors
-                Controle3(
-                  alertName3: 'Termometro Clinico',
+                Controle(
+                  alertName: 'Termometro clinico',
+                  hero: 'btn3',
+                  rota: '/instrucoesdadosPressao',
                 ),
               ],
             )

@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/cadastro_form.dart';
-import '../../components/inputcad.dart';
+import '../../components/form_salvaridoso.dart';
 
 class SingUp extends StatelessWidget {
   const SingUp({Key? key}) : super(key: key);
@@ -38,7 +35,7 @@ class SingUp extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   fontSize: 18),
             ),
-            CadastroForm(),
+            SalvarIdosoForm(),
           ],
         ),
       ),
