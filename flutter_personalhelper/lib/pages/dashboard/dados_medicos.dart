@@ -1,5 +1,8 @@
 // ignore_for_file: avoid_print
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:personal_helper/components/controleidoso.dart';
 import 'package:personal_helper/components/profilebar.dart';
 
 class dados extends StatelessWidget {
@@ -70,7 +73,11 @@ class dados extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
                   ),
-                )
+                ),
+                Controle(
+                  alertName: 'Medição de pressão arterial',
+                  alertIcon: 'assets/img/remedio1.png',
+                ),
               ],
             )
           ],
