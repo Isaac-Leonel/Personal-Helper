@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
 
-class Pressao extends StatelessWidget {
-  const Pressao({Key? key}) : super(key: key);
+class Glicose extends StatelessWidget {
+  const Glicose({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class Pressao extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      'MEDICAO DE PRESSAO ARTERIAL',
+                      'MEDICAO DE GLICOSE',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -103,14 +103,14 @@ class Pressao extends StatelessWidget {
                       width: 230,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage("assets/img/pressao.png"),
+                            image: AssetImage("assets/img/glicose.png"),
                             fit: BoxFit.cover),
                       ),
                     ),
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 80),
+                          padding: const EdgeInsets.only(left: 70),
                           child: FloatingActionButton(
                             child: Icon(Icons.add_home_outlined),
                             backgroundColor: const Color(0xFF00261D),

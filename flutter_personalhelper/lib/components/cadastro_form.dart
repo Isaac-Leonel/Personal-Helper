@@ -4,10 +4,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/components/tela_confirma%C3%A7%C3%A3o.dart';
-import 'package:personal_helper/models/idoso.dart';
 
 import '../main.dart';
-import '../pages/login_page/home_page.dart';
 
 class CadastroForm extends StatelessWidget {
   const CadastroForm({Key? key}) : super(key: key);

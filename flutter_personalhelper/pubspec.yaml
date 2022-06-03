@@ -79,6 +79,8 @@ flutter:
     - assets/img/caixaderemedio.png
     - assets/img/onda.png
     - assets/img/pressao.png
+    - assets/img/glicose.png
+    - assets/img/temperatura.png
     
   #   - images/a_dot_ham.jpeg
 

@@ -49,7 +49,8 @@ class Controle3 extends StatelessWidget {
                           child: Icon(Icons.add_a_photo),
                           backgroundColor: const Color(0xFF32A18A),
                           onPressed: () {
-                            Navigator.of(context).pushNamed('/dados_medicos');
+                            Navigator.of(context)
+                                .pushNamed('/instrucoesdadosTermometro');
                           }),
                     ),
                   ],
