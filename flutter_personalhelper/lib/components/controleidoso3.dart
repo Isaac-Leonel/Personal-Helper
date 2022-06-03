@@ -33,7 +33,7 @@ class Controle3 extends StatelessWidget {
                 child: Wrap(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 15),
+                      padding: const EdgeInsets.only(left: 10, top: 20),
                       child: Text(
                         alertName3,
                         style: TextStyle(

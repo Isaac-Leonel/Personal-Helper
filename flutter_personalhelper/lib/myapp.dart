@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_helper/pages/dashboard/caixaRemedio.dart';
 import 'package:personal_helper/pages/dashboard/dados_medicos.dart';
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
+import 'package:personal_helper/pages/dashboard/instrucoesdadosPressao.dart';
 import 'package:personal_helper/pages/dashboard/edita_remedio.dart';
 import 'package:personal_helper/pages/login_page/home_page.dart';
 import 'package:personal_helper/pages/singup_page/UserType.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/caixaremedio': ((context) => const caixaRemedio()),
         '/edita_remedio': ((context) => const Edita()),
         '/dados_medicos': ((context) => const dados()),
+        '/instrucoesdadosPressao': ((context) => const Pressao()),
       },
     );
   }

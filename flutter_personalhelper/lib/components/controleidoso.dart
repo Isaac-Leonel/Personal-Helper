@@ -33,7 +33,7 @@ class Controle extends StatelessWidget {
                 child: Wrap(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 15),
+                      padding: const EdgeInsets.only(left: 10, top: 20),
                       child: Text(
                         alertName,
                         style: TextStyle(
@@ -49,7 +49,8 @@ class Controle extends StatelessWidget {
                           child: Icon(Icons.add_a_photo),
                           backgroundColor: const Color(0xFF32A18A),
                           onPressed: () {
-                            Navigator.of(context).pushNamed('/dados_medicos');
+                            Navigator.of(context)
+                                .pushNamed('/instrucoesdadosPressao');
                           }),
                     ),
                   ],
