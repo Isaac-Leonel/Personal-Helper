@@ -12,7 +12,7 @@ class caixaRemedio extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF00261d),
       body: SingleChildScrollView(
-        child: Column(
+        child: Wrap(
           children: [
             Center(
               child: Container(
@@ -63,7 +63,23 @@ class caixaRemedio extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 150),
+              padding: const EdgeInsets.all(25.0),
+              child: Wrap(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ModuleCardRemedio(
+                      textModule: "PARACETAMOL",
+                      iconModule: 'assets/img/remedio.png',
+                      textModule1: "Comprimidos",
+                      textModule2: "50 | 100",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 150, left: 180),
               child: FloatingActionButton(
                   child: Icon(Icons.add),
                   backgroundColor: const Color(0xFF32A18A),
