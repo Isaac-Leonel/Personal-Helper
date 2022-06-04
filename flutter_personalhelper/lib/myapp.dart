@@ -5,12 +5,12 @@ import 'package:personal_helper/pages/dashboard/dados_medicos.dart';
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
 import 'package:personal_helper/pages/dashboard/instrucoesdadosPressao.dart';
 import 'package:personal_helper/pages/dashboard/intrucoesdadosGlicose.dart';
+import 'package:personal_helper/pages/dashboard/FotoPressao.dart';
 import 'package:personal_helper/pages/dashboard/instrucoesdadosTermometro.dart';
 import 'package:personal_helper/pages/dashboard/edita_remedio.dart';
 import 'package:personal_helper/pages/login_page/home_page.dart';
 import 'package:personal_helper/pages/singup_page/UserType.dart';
 import 'package:personal_helper/pages/singup_page/singup.dart';
-
 import 'components/tela_confirmação.dart';
 import 'pages/dashboard/edita_remedio.dart';
 
@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
         '/instrucoesdadosPressao': ((context) => const Pressao()),
         '/intrucoesdadosGlicose': ((context) => const Glicose()),
         '/instrucoesdadosTermometro': ((context) => const Temperatura()),
+        '/FotoPressao': ((context) => const FotoPressao()),
       },
     );
   }
