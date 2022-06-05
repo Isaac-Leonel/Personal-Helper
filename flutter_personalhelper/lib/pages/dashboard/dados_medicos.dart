@@ -79,15 +79,15 @@ class dados extends StatelessWidget {
                   hero: 'btn4',
                   rota: '/instrucoesdadosPressao',
                 ),
-                Controle(
+                const Controle(
                   alertName: 'Medidor de glicemia',
                   hero: 'btn2',
-                  rota: '/instrucoesdadosPressao',
+                  rota: '/intrucoesdadosGlicose',
                 ),
-                Controle(
+                const Controle(
                   alertName: 'Termometro clinico',
                   hero: 'btn3',
-                  rota: '/instrucoesdadosPressao',
+                  rota: '/instrucoesdadosTermometro',
                 ),
               ],
             )

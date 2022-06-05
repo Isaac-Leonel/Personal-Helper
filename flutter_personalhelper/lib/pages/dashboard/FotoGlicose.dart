@@ -6,14 +6,14 @@ import 'dart:io';
 import '../../components/FinalControle.dart';
 import 'dashboard.dart';
 
-class FotoPressao extends StatefulWidget {
-  const FotoPressao({Key? key}) : super(key: key);
+class FotoGlicose extends StatefulWidget {
+  const FotoGlicose({Key? key}) : super(key: key);
 
   @override
-  State<FotoPressao> createState() => _FotoPressaoState();
+  State<FotoGlicose> createState() => _FotoGlicoseState();
 }
 
-class _FotoPressaoState extends State<FotoPressao> {
+class _FotoGlicoseState extends State<FotoGlicose> {
   pegarImagemGaleria() async {
     final PickedFile? imagemTemporaria =
         // ignore: deprecated_member_use
@@ -58,7 +58,7 @@ class _FotoPressaoState extends State<FotoPressao> {
                       ),
                     ),
                     const Text(
-                      'MEDICAO DE PRESSAO ARTERIAL',
+                      'MEDICAO DE GLICOSE ARTERIAL',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,

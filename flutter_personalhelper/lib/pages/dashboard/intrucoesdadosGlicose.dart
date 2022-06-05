@@ -125,7 +125,7 @@ class Glicose extends StatelessWidget {
                             child: const Icon(Icons.add_a_photo),
                             backgroundColor: const Color(0xFF00261D),
                             onPressed: () {
-                              Navigator.of(context).pushNamed('/dashboard');
+                              Navigator.of(context).pushNamed('/FotoGlicose');
                             },
                           ),
                         ),
