@@ -5,8 +5,6 @@ import 'package:personal_helper/models/idoso.dart';
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
 
-import '../../components/inputcad.dart';
-
 class Login extends StatefulWidget {
   @override
   State<Login> createState() => _LoginState();

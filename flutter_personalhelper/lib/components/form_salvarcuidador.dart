@@ -7,8 +7,8 @@ import 'package:personal_helper/components/tela_confirma%C3%A7%C3%A3o.dart';
 
 import '../main.dart';
 
-class CadastroForm extends StatelessWidget {
-  const CadastroForm({Key? key}) : super(key: key);
+class SalvarCuidadorForm extends StatelessWidget {
+  const SalvarCuidadorForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

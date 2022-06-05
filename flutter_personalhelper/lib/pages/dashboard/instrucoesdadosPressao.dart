@@ -113,6 +113,7 @@ class Pressao extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 80),
                           child: FloatingActionButton(
+                            heroTag: "btn7",
                             child: Icon(Icons.add_home_outlined),
                             backgroundColor: const Color(0xFF00261D),
                             onPressed: () {
@@ -123,6 +124,7 @@ class Pressao extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(50),
                           child: FloatingActionButton(
+                            heroTag: "btn8",
                             child: const Icon(Icons.add_a_photo),
                             backgroundColor: const Color(0xFF00261D),
                             onPressed: () {

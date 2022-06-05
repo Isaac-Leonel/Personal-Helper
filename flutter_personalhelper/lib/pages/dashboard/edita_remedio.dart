@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:personal_helper/components/profilebar.dart';
 
-import '../../components/inputcad.dart';
-import '../../components/inputcads.dart';
-
 class Edita extends StatelessWidget {
   const Edita({Key? key}) : super(key: key);
   @override
@@ -48,17 +45,6 @@ class Edita extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            Column(
-              children: [
-                const InputCadLarg(inputname: 'Descriçao'),
-                const InputCad(inputname: 'Quantidade'),
-                const InputCad(inputname: 'Vencimento'),
-                const InputCad(inputname: 'Horario de Administração'),
-                const InputCad(inputname: 'Horario de Administração 2'),
-                const InputCad(inputname: 'Função'),
-                const InputCad(inputname: 'Tarja'),
-              ],
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
