@@ -37,15 +37,12 @@ class MyApp extends StatelessWidget {
         '/instrucoesdadosPressao': ((context) => const Pressao()),
         '/intrucoesdadosGlicose': ((context) => const Glicose()),
         '/instrucoesdadosTermometro': ((context) => const Temperatura()),
-<<<<<<< HEAD
         '/alertas': ((context) => const Alertas()),
         '/calendario': ((context) => const Calendario()),
-=======
         '/FotoPressao': ((context) => const FotoPressao()),
         '/FotoGlicose': ((context) => const FotoGlicose()),
         '/FotoTemperatura': ((context) => const FotoTemperatura()),
         '/foto_confirmacao': ((context) => const FotoConfirmacao()),
->>>>>>> 046d7c467adedf031d8bbd0a1e859b5bac9aefee
       },
     );
   }
