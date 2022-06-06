@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_helper/pages/dashboard/alertas.dart';
 import 'package:personal_helper/pages/dashboard/caixaRemedio.dart';
+import 'package:personal_helper/pages/dashboard/calendario.dart';
 import 'package:personal_helper/pages/dashboard/dados_medicos.dart';
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
 import 'package:personal_helper/pages/dashboard/instrucoesdadosPressao.dart';
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/instrucoesdadosPressao': ((context) => const Pressao()),
         '/intrucoesdadosGlicose': ((context) => const Glicose()),
         '/instrucoesdadosTermometro': ((context) => const Temperatura()),
+        '/alertas': ((context) => const Alertas()),
+        '/calendario': ((context) => const Calendario()),
       },
     );
   }
