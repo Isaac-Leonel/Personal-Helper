@@ -13,36 +13,22 @@ class SalvarRemedioForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final nomeController = TextEditingController();
-    final cpfController = TextEditingController();
-    final dataController = TextEditingController();
-    final emailController = TextEditingController();
-    final senhaController = TextEditingController();
-    final rgController = TextEditingController();
-    final ruaController = TextEditingController();
-    final bairroController = TextEditingController();
-    final cidadeController = TextEditingController();
-    final numeroController = TextEditingController();
-    final confirmarSenhaController = TextEditingController();
+    final dosageController = TextEditingController();
+    final descController = TextEditingController();
 
     Future<String> postIdoso() async {
       HttpOverrides.global = MyHttpOverrides();
       final response = await http.post(
           Uri.parse(
-              'https://5d02-2804-18-4016-c77f-87e6-993b-38c9-6f24.sa.ngrok.io/api/ph/elderly/save'),
+              'https://e397-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/medicament/save'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },
           body: jsonEncode(<String, String>{
             "name": nomeController.text,
-            "cpf": cpfController.text,
-            "birthday": dataController.text,
-            "email": emailController.text,
-            "password": senhaController.text,
-            "rg": rgController.text,
-            "street": ruaController.text,
-            "neighborhood": bairroController.text,
-            "city": cidadeController.text,
-            "number": numeroController.text
+            "description": descController.text,
+            "dosage": dosageController.text,
+            "cpf": "01878129694",
           }));
       var body = json.decode(response.body);
       print(body);
@@ -52,17 +38,6 @@ class SalvarRemedioForm extends StatelessWidget {
         return body;
       } else {
         throw Exception('Deu ruim!');
-      }
-    }
-
-    enviarFormulario(
-      String password,
-      String confSenha,
-    ) async {
-      if (password == confSenha) {
-        postIdoso();
-      } else {
-        print("As senhas não correspondem");
       }
     }
 
@@ -107,7 +82,7 @@ class SalvarRemedioForm extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(top: 15, left: 15),
                 child: Text(
-                  'E-mail',
+                  'Dosagem',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
@@ -119,7 +94,7 @@ class SalvarRemedioForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: TextField(
-                    controller: emailController,
+                    controller: dosageController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),
@@ -138,7 +113,7 @@ class SalvarRemedioForm extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(top: 15, left: 15),
                 child: Text(
-                  'Data de Aniversario',
+                  'Descrição',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
@@ -150,255 +125,7 @@ class SalvarRemedioForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: TextField(
-                    controller: dataController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'CPF',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: cpfController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'RG',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: rgController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'Rua',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: ruaController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'Bairro',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: bairroController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'Cidade',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: cidadeController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'Numero da Residencia',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: numeroController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'Senha',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: senhaController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15, left: 15),
-                child: Text(
-                  'Confirmar Senha',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: TextField(
-                    controller: confirmarSenhaController,
+                    controller: descController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),
@@ -417,8 +144,7 @@ class SalvarRemedioForm extends StatelessWidget {
                 child: Icon(Icons.task_alt),
                 backgroundColor: const Color(0xFF32A18A),
                 onPressed: () {
-                  enviarFormulario(
-                      senhaController.text, confirmarSenhaController.text);
+                  postIdoso();
                 }),
           ),
         ],

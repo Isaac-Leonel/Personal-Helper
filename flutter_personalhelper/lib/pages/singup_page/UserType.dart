@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_helper/pages/singup_page/singup.dart';
+
+import '../dashboard/dashboard.dart';
 
 class UserType extends StatelessWidget {
   const UserType({Key? key}) : super(key: key);
@@ -49,7 +52,8 @@ class UserType extends StatelessWidget {
                       shape: new RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100))),
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/logon');
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => SingUp(type: true)));
                   },
                   child: Column(
                     children: [
@@ -77,7 +81,10 @@ class UserType extends StatelessWidget {
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100))),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => SingUp(type: false)));
+                },
                 child: Column(
                   children: [
                     SizedBox(

@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:personal_helper/models/idoso.dart';
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -25,18 +24,30 @@ class _LoginState extends State<Login> {
       super.dispose();
     }
 
-    Future<Idoso> fetchAlbum(String Login, String Senha) async {
+    Future<String> fetchAlbum(String Login, String Senha) async {
       print(Login + Senha);
       final response = await http.get(Uri.parse(
-          'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
-      var body = json.decode(response.body);
+          'https://b542-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
+      var body = response.body;
       print(body);
-      if (response.statusCode == 200) {
+      if (body != "falhou" || response.statusCode != 404) {
+        print(body);
         Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
+        return body;
       } else {
-        print('Login Incorreto');
+        final teste = await http.get(Uri.parse(
+            'https://77b1-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/caregiver/validate_login/${Login}/${Senha}'));
+        var cuidador = teste.body;
+        if (cuidador != "falhou" || response.statusCode != 404) {
+          print(cuidador);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => Dashboard()));
+          return cuidador;
+        } else {
+          print('Login Incorreto');
+        }
       }
-      return body;
+      return "deu errado";
     }
 
     return Scaffold(
@@ -115,8 +126,8 @@ class _LoginState extends State<Login> {
                 height: 50.0,
                 child: ElevatedButton(
                   onPressed: () => {
-                    // fetchAlbum(loginController.text, senhaController.text)
-                    Navigator.of(context).pushNamed('/dashboard')
+                    fetchAlbum(loginController.text, senhaController.text)
+                    // Navigator.of(context).pushNamed('/dashboard')
                   },
                   //fetchAlbum(loginController.text, senhaController.text)
                   //Navigator.of(context).pushNamed('/usertype')
