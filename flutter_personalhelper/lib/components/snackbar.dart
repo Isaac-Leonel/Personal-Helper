@@ -13,12 +13,13 @@ class SnackIdoso extends StatelessWidget {
           children: [
             Column(
               children: [
-                SizedBox(
-                  width: 40,
-                  height: 40,
+                GestureDetector(
                   child: Image.asset(
                     'assets/img/clockicon.png',
                   ),
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/alertas');
+                  },
                 ),
                 Text(
                   'Horarios',
@@ -30,7 +31,6 @@ class SnackIdoso extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 30),
               child: Center(
                 child: FloatingActionButton(
-                    heroTag: "btn1",
                     child: Icon(Icons.monitor_heart_outlined),
                     backgroundColor: const Color(0xFF32A18A),
                     onPressed: () {
@@ -44,7 +44,7 @@ class SnackIdoso extends StatelessWidget {
                   width: 40,
                   height: 40,
                   child: Image.asset(
-                    'assets/img/clockicon.png',
+                    'assets/img/vector.png',
                   ),
                 ),
                 Text(

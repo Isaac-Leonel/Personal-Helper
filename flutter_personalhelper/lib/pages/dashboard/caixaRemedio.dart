@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:personal_helper/components/profilebar.dart';
-import 'package:personal_helper/components/modulecardRemedio.dart';
+
+import '../../components/modulecardRemedio.dart';
 
 class caixaRemedio extends StatelessWidget {
   const caixaRemedio({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:personal_helper/components/horarioalerta.dart';
+import 'package:personal_helper/components/moduleCardCalendario.dart';
 import 'package:personal_helper/components/modulecard.dart';
 import 'package:personal_helper/components/profilebar.dart';
 import 'package:personal_helper/components/snackbar.dart';
@@ -100,9 +101,9 @@ class _DashboardState extends State<Dashboard> {
                     ),
                     const Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: ModuleCard(
-                          iconModule: 'assets/img/caixaderemedio.png',
-                          textModule: 'Caixa de Remedio'),
+                      child: ModuleCardCalendario(
+                          iconModule: 'assets/img/calendario.png',
+                          textModule: 'Calendário'),
                     ),
                     const Padding(
                       padding: EdgeInsets.all(8.0),

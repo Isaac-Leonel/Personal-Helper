@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
   
   flutter_localizations:
    sdk: flutter
@@ -41,6 +42,8 @@ dependencies:
   intl: ^0.17.0
   shared_preferences: ^2.0.8
   image_picker: ^0.8.1+3
+  syncfusion_flutter_calendar: ^18.4.46
+  table_calendar: ^3.0.6
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +85,14 @@ flutter:
     - assets/img/pressao.png
     - assets/img/glicose.png
     - assets/img/temperatura.png
+    - assets/img/agua.png
+    - assets/img/vector.png
+    - assets/img/calendario.png
+
+
+
+
+
     
   #   - images/a_dot_ham.jpeg
 
