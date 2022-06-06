@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class Pressao extends StatelessWidget {
   const Pressao({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +89,7 @@ class Pressao extends StatelessWidget {
                       padding: const EdgeInsets.all(20.0),
                       child: Container(
                         child: const Text(
-                          '3 - Após realizar a captura verifique a imagem se os numeros estão legiveis, caso não descarte a imagem e capture novamente;',
+                          '3 -  realizar a captura verifique a imagem se os numeros estão legiveis, caso não descarte a imagem e capture novamente;',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color: Colors.white,
@@ -127,7 +128,7 @@ class Pressao extends StatelessWidget {
                             child: const Icon(Icons.add_a_photo),
                             backgroundColor: const Color(0xFF00261D),
                             onPressed: () {
-                              Navigator.of(context).pushNamed('/dashboard');
+                              Navigator.of(context).pushNamed('/FotoPressao');
                             },
                           ),
                         ),
