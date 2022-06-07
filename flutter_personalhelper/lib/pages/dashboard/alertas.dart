@@ -4,6 +4,7 @@ import 'package:personal_helper/components/horarioalerta.dart';
 import 'package:personal_helper/components/profilebar.dart';
 import 'package:personal_helper/components/snackbar.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 String getDate() {
   initializeDateFormatting('pt_br', null);

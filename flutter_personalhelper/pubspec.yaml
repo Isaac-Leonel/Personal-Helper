@@ -43,6 +43,7 @@ dependencies:
   shared_preferences: ^2.0.8
   syncfusion_flutter_calendar: ^18.4.46
   table_calendar: ^3.0.6
+  flutter_masked_text: ^0.8.0
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,9 @@ flutter:
     - assets/img/agua.png
     - assets/img/vector.png
     - assets/img/calendario.png
+    - assets/img/cartao.png
+    - assets/img/perfil.png
+
 
 
 

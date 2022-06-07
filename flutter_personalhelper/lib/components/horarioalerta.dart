@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
+
+
 
 class HorarioAlerta extends StatelessWidget {
   const HorarioAlerta(
@@ -25,6 +30,7 @@ class HorarioAlerta extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: const Color(0xFF32A18A),
           boxShadow: [
+            
             BoxShadow(color: const Color(0xFF32A18A), spreadRadius: 3),
           ],
         ),
@@ -36,6 +42,8 @@ class HorarioAlerta extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   alertTime + ' | ',
+                  
+                  
                   style: TextStyle(color: Colors.white),
                 ),
               ),
