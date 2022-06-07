@@ -26,11 +26,10 @@ class _LoginState extends State<Login> {
 
     Future<Idoso> fetchGetUserByCpf(String cpf) async {
       final response = await http.get(Uri.parse(
-          'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/validate_login/'));
+          'https://c3c4-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/validate_login/${cpf}'));
       var body = json.decode(response.body);
       print(body);
       if (response.statusCode == 200) {
-        saveStringValue(body);
         Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
       } else {
         print('Login Incorreto');
@@ -61,15 +60,16 @@ class _LoginState extends State<Login> {
 
     Future<String> fetchAlbum(String Login, String Senha) async {
       print(Login + Senha);
+
       final response = await http.get(Uri.parse(
-          'https://b542-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
+          'https://c3c4-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
       var body = response.body;
       print(body);
-      if (body == "falhou" || response.statusCode == 404) {
+      if (body == "falhou" || response.statusCode != 200) {
         final teste = await http.get(Uri.parse(
-            'https://77b1-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/caregiver/validate_login/${Login}/${Senha}'));
+            'https://dada-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/caregiver/validate_login/${Login}/${Senha}'));
         var cuidador = teste.body;
-        if (cuidador == "falhou" || teste.statusCode == 404) {
+        if (cuidador == "falhou" || teste.statusCode != 200) {
           print('Login Incorreto');
         } else {
           print(cuidador);

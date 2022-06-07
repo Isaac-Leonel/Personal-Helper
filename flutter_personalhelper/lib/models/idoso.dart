@@ -3,22 +3,22 @@ class Idoso {
   final String cpf;
   final String birthday;
   final String email;
-  final String password;
+//  final String password;
   final String rg;
-  final String image;
+//  final String image;
   final String street;
   final String neighborhood;
   final String city;
-  final int number;
+  final String number;
 
   const Idoso({
     required this.name,
     required this.cpf,
     required this.birthday,
     required this.email,
-    required this.password,
+    //   required this.password,
     required this.rg,
-    required this.image,
+//required this.image,
     required this.street,
     required this.neighborhood,
     required this.city,
@@ -30,10 +30,10 @@ class Idoso {
         name: json['name'],
         cpf: json['cpf'],
         birthday: json['birthday'],
-        email: json['email'],
-        password: json['password'],
+        email: json['login'],
+        //  password: json['password'],
         rg: json['rg'],
-        image: json['image'],
+        //      image: json['image'],
         street: json['street'],
         neighborhood: json['neighborhood'],
         city: json['city'],
