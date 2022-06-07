@@ -86,10 +86,13 @@ flutter:
     - assets/img/agua.png
     - assets/img/vector.png
     - assets/img/calendario.png
+<<<<<<< HEAD
     - assets/img/idosoperfil.png
+=======
     - assets/img/cartao.png
     - assets/img/perfil.png
 
+>>>>>>> 111dd1030f514d89a297f562d85d6cea78a78334
 
   #   - images/a_dot_ham.jpeg
 

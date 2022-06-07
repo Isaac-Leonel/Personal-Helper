@@ -19,9 +19,14 @@ class _LoginState extends State<Login> {
     final loginController = TextEditingController();
     final senhaController = TextEditingController();
 
+    saveStringValue(String cpf) async {
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString("cpf", cpf);
+    }
+
     Future<Idoso> fetchGetUserByCpf(String cpf) async {
       final response = await http.get(Uri.parse(
-          'https://3884-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/validate_login/${cpf}'));
+          'https://c3c4-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/validate_login/${cpf}'));
       var body = json.decode(response.body);
       print(body);
       if (response.statusCode == 200) {
@@ -57,29 +62,25 @@ class _LoginState extends State<Login> {
       print(Login + Senha);
 
       final response = await http.get(Uri.parse(
-          'https://3884-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
+          'https://c3c4-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
       var body = response.body;
       print(body);
       if (body == "falhou" || response.statusCode != 200) {
         final teste = await http.get(Uri.parse(
-            'https://8340-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/caregiver/validate_login/${Login}/${Senha}'));
+            'https://dada-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/caregiver/validate_login/${Login}/${Senha}'));
         var cuidador = teste.body;
         if (cuidador == "falhou" || teste.statusCode != 200) {
           print('Login Incorreto');
         } else {
           print(cuidador);
-          final prefs = await SharedPreferences.getInstance();
-          prefs.remove("cpf");
-          prefs.setString("cpf", body);
+          saveStringValue(cuidador);
           Navigator.push(
               context, MaterialPageRoute(builder: (_) => Dashboard()));
           return cuidador;
         }
       } else {
         print(body);
-        final prefs = await SharedPreferences.getInstance();
-        prefs.remove("cpf");
-        prefs.setString("cpf", body);
+        saveStringValue(body);
         Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
         return body;
       }
@@ -165,8 +166,8 @@ class _LoginState extends State<Login> {
                 height: 50.0,
                 child: ElevatedButton(
                   onPressed: () => {
-                    fetchAlbum(loginController.text, senhaController.text)
-                    //  Navigator.of(context).pushNamed('/dashboard')
+                    // fetchAlbum(loginController.text, senhaController.text)
+                    Navigator.of(context).pushNamed('/dashboard')
                   },
                   //fetchAlbum(loginController.text, senhaController.text)
                   //Navigator.of(context).pushNamed('/usertype')
