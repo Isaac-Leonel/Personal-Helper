@@ -127,6 +127,7 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     controller: loginController,
                     decoration: InputDecoration(
+                      labelText: 'Digite seu login',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -146,12 +147,14 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     controller: senhaController,
                     decoration: InputDecoration(
+                      labelText: 'Digite sua senha',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
                       fillColor: Colors.white,
                     ),
+                    obscureText: true,
                   ),
                 ),
               ),
