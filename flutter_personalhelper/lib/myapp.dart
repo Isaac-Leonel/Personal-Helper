@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_helper/components/cartao_saude.dart';
 import 'package:personal_helper/pages/dashboard/alertas.dart';
 import 'package:personal_helper/pages/dashboard/caixaRemedio.dart';
 import 'package:personal_helper/pages/dashboard/calendario.dart';
@@ -40,11 +41,19 @@ class MyApp extends StatelessWidget {
         '/intrucoesdadosGlicose': ((context) => const Glicose()),
         '/instrucoesdadosTermometro': ((context) => const Temperatura()),
         '/alertas': ((context) => const Alertas()),
+<<<<<<< HEAD
+        '/calendario': ((context) => const Calendario()),
+=======
         /*  '/calendario': ((context) => const Calendario()), */
+>>>>>>> 3fb7874d38b3c7e70c062ca8641deb6c9acd8474
         '/FotoPressao': ((context) => const FotoPressao()),
         '/FotoGlicose': ((context) => const FotoGlicose()),
         '/FotoTemperatura': ((context) => const FotoTemperatura()),
         '/foto_confirmacao': ((context) => const FotoConfirmacao()),
+<<<<<<< HEAD
+        '/cartaoSaude': ((context) => const CartaoSaude()),
+=======
+>>>>>>> 3fb7874d38b3c7e70c062ca8641deb6c9acd8474
       },
     );
   }
