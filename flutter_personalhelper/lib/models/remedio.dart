@@ -11,11 +11,17 @@ class Remedio {
     required this.dosage,
   });
 
-  factory Remedio.fromJson(Map<String, dynamic> json) {
-    return Remedio(
-        name: json['name'],
-        cpf: json['cpf'],
-        description: json['description'],
-        dosage: json['dosage']);
+  Remedio.fromJson(Map json)
+      : name = json['name'],
+        cpf = json['cpf'],
+        description = json['description'],
+        dosage = json['dosage'];
+  Map toJson() {
+    return {
+      'name': name,
+      'cpf': cpf,
+      'description': description,
+      'dosage': dosage
+    };
   }
 }

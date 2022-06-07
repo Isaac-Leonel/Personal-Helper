@@ -27,7 +27,7 @@ class _ProfileBarState extends State<ProfileBar> {
     String? value = prefs.getString("cpf");
     print(value);
     final response = await http.get(Uri.parse(
-        'https://c3c4-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/look_for/${value}'));
+        'https://3884-2804-7f2-2789-3253-7007-7b01-7d45-1af0.sa.ngrok.io/api/ph/elderly/look_for/${value}'));
     if (response.statusCode == 200) {
       return Idoso.fromJson(jsonDecode(response.body));
     } else {

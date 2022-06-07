@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/components/tela_confirma%C3%A7%C3%A3o.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 
@@ -18,6 +19,8 @@ class SalvarRemedioForm extends StatelessWidget {
 
     Future<String> postIdoso() async {
       HttpOverrides.global = MyHttpOverrides();
+      final prefs = await SharedPreferences.getInstance();
+      String? value = prefs.getString("cpf");
       final response = await http.post(
           Uri.parse(
               'https://e397-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/medicament/save'),
