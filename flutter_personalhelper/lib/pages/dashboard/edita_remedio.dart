@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:personal_helper/components/profilebar.dart';
 
+import '../../components/form_salvarremedio.dart';
+
 class Edita extends StatelessWidget {
   const Edita({Key? key}) : super(key: key);
   @override
@@ -46,15 +48,7 @@ class Edita extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FloatingActionButton(
-                  child: Icon(Icons.task_alt),
-                  backgroundColor: const Color(0xFF32A18A),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/caixaremedio');
-                  }),
-            ),
+            SalvarRemedioForm()
           ],
         ),
       ),

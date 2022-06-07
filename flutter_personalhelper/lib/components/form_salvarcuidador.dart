@@ -14,10 +14,11 @@ class SalvarCuidadorForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final nomeController = TextEditingController();
     final cpfController = TextEditingController();
+    final loginController = TextEditingController();
     final dataController = TextEditingController();
-    final emailController = TextEditingController();
+    final escolaridadeController = TextEditingController();
     final senhaController = TextEditingController();
-    final rgController = TextEditingController();
+    final complementController = TextEditingController();
     final ruaController = TextEditingController();
     final bairroController = TextEditingController();
     final cidadeController = TextEditingController();
@@ -28,7 +29,7 @@ class SalvarCuidadorForm extends StatelessWidget {
       HttpOverrides.global = MyHttpOverrides();
       final response = await http.post(
           Uri.parse(
-              'https://5d02-2804-18-4016-c77f-87e6-993b-38c9-6f24.sa.ngrok.io/api/ph/elderly/save'),
+              'https://77b1-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/caregiver/save'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },
@@ -36,9 +37,10 @@ class SalvarCuidadorForm extends StatelessWidget {
             "name": nomeController.text,
             "cpf": cpfController.text,
             "birthday": dataController.text,
-            "email": emailController.text,
+            "login": loginController.text,
+            "Schooling": escolaridadeController.text,
             "password": senhaController.text,
-            "rg": rgController.text,
+            "complement": complementController.text,
             "street": ruaController.text,
             "neighborhood": bairroController.text,
             "city": cidadeController.text,
@@ -119,7 +121,38 @@ class SalvarCuidadorForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: TextField(
-                    controller: emailController,
+                    controller: loginController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 15, left: 15),
+                child: Text(
+                  'Escolaridade',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 18),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: TextField(
+                    controller: escolaridadeController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),
@@ -200,7 +233,7 @@ class SalvarCuidadorForm extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(top: 15, left: 15),
                 child: Text(
-                  'RG',
+                  'Rua',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
@@ -212,7 +245,7 @@ class SalvarCuidadorForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: TextField(
-                    controller: rgController,
+                    controller: ruaController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),
@@ -231,7 +264,7 @@ class SalvarCuidadorForm extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(top: 15, left: 15),
                 child: Text(
-                  'Rua',
+                  'Complemento',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
@@ -243,7 +276,7 @@ class SalvarCuidadorForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: TextField(
-                    controller: ruaController,
+                    controller: complementController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),

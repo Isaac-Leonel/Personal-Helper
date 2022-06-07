@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:personal_helper/components/form_salvarcuidador.dart';
 
 import '../../components/form_salvaridoso.dart';
 
 class SingUp extends StatelessWidget {
-  const SingUp({Key? key}) : super(key: key);
+  const SingUp({Key? key, required this.type}) : super(key: key);
+
+  final bool type;
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +30,24 @@ class SingUp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 25),
             ),
-            const Text(
-              'IDOSO',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18),
-            ),
-            SalvarIdosoForm(),
+            type
+                ? const Text(
+                    'IDOSO',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 18),
+                  )
+                : const Text(
+                    'CUIDADOR',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 18),
+                  ),
+            type ? SalvarIdosoForm() : SalvarCuidadorForm()
           ],
         ),
       ),

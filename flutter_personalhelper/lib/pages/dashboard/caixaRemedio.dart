@@ -51,30 +51,17 @@ class caixaRemedio extends StatelessWidget {
               padding: const EdgeInsets.all(25.0),
               child: Wrap(
                 children: const [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ModuleCardRemedio(
-                      textModule: "PARACETAMOL",
-                      iconModule: 'assets/img/remedio.png',
-                      textModule1: "Comprimidos",
-                      textModule2: "50 | 100",
-                    ),
+                  ModuleCardRemedio(
+                    textModule: "PARACETAMOL",
+                    iconModule: 'assets/img/remedio.png',
+                    textModule1: "Comprimidos",
+                    textModule2: "50 | 100",
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Wrap(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ModuleCardRemedio(
-                      textModule: "PARACETAMOL",
-                      iconModule: 'assets/img/remedio.png',
-                      textModule1: "Comprimidos",
-                      textModule2: "50 | 100",
-                    ),
+                  ModuleCardRemedio(
+                    textModule: "PARACETAMOL",
+                    iconModule: 'assets/img/remedio.png',
+                    textModule1: "Comprimidos",
+                    textModule2: "50 | 100",
                   ),
                 ],
               ),
