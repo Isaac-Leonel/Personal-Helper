@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/intrucoesdadosGlicose': ((context) => const Glicose()),
         '/instrucoesdadosTermometro': ((context) => const Temperatura()),
         '/alertas': ((context) => const Alertas()),
-        '/calendario': ((context) => const Calendario()),
+        /*  '/calendario': ((context) => const Calendario()), */
         '/FotoPressao': ((context) => const FotoPressao()),
         '/FotoGlicose': ((context) => const FotoGlicose()),
         '/FotoTemperatura': ((context) => const FotoTemperatura()),

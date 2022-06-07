@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:personal_helper/models/idoso.dart';
 import 'package:http/http.dart' as http;
@@ -17,10 +19,43 @@ class _LoginState extends State<Login> {
     final loginController = TextEditingController();
     final senhaController = TextEditingController();
 
+    saveStringValue(String cpf) async {
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString("cpf", cpf);
+    }
+
+    Future<Idoso> fetchGetUserByCpf(String cpf) async {
+      final response = await http.get(Uri.parse(
+          'https://40ee-2804-7f2-2789-3253-b138-64b1-9446-f3c3.sa.ngrok.io/api/ph/elderly/validate_login/'));
+      var body = json.decode(response.body);
+      print(body);
+      if (response.statusCode == 200) {
+        saveStringValue(body);
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
+      } else {
+        print('Login Incorreto');
+      }
+      return body;
+    }
+
+    retrieveStringValue() async {
+      final prefs = await SharedPreferences.getInstance();
+      String? value = prefs.getString("cpf");
+      if (value == null) {
+        print('Gentileza informar seus dados');
+      } else {
+        fetchGetUserByCpf(value);
+      }
+    }
+
+    @override
+    void initState() {
+      retrieveStringValue();
+      super.initState();
+    }
+
     @override
     void dispose() {
-      // limpa o controller quando for liberado
-      loginController.dispose();
       super.dispose();
     }
 
@@ -30,22 +65,24 @@ class _LoginState extends State<Login> {
           'https://b542-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/elderly/validate_login/${Login}/${Senha}'));
       var body = response.body;
       print(body);
-      if (body != "falhou" || response.statusCode != 404) {
-        print(body);
-        Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
-        return body;
-      } else {
+      if (body == "falhou" || response.statusCode == 404) {
         final teste = await http.get(Uri.parse(
             'https://77b1-2804-7f2-2789-3253-916e-5758-e59c-9e71.sa.ngrok.io/api/ph/caregiver/validate_login/${Login}/${Senha}'));
         var cuidador = teste.body;
-        if (cuidador != "falhou" || response.statusCode != 404) {
+        if (cuidador == "falhou" || teste.statusCode == 404) {
+          print('Login Incorreto');
+        } else {
           print(cuidador);
+          saveStringValue(cuidador);
           Navigator.push(
               context, MaterialPageRoute(builder: (_) => Dashboard()));
           return cuidador;
-        } else {
-          print('Login Incorreto');
         }
+      } else {
+        print(body);
+        saveStringValue(body);
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Dashboard()));
+        return body;
       }
       return "deu errado";
     }
