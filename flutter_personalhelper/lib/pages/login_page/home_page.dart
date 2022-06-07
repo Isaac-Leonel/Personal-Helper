@@ -163,8 +163,8 @@ class _LoginState extends State<Login> {
                 height: 50.0,
                 child: ElevatedButton(
                   onPressed: () => {
-                    fetchAlbum(loginController.text, senhaController.text)
-                    // Navigator.of(context).pushNamed('/dashboard')
+                    // fetchAlbum(loginController.text, senhaController.text)
+                    Navigator.of(context).pushNamed('/dashboard')
                   },
                   //fetchAlbum(loginController.text, senhaController.text)
                   //Navigator.of(context).pushNamed('/usertype')

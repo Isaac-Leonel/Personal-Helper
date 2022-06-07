@@ -48,7 +48,9 @@ class ProfileBar extends StatelessWidget {
             icon: Icon(Icons.settings),
             color: Colors.white,
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed('/Perfil');
+            },
           )
         ],
       ),
