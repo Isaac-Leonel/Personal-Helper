@@ -1,25 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_helper/components/cartao_saude.dart';
-import 'package:personal_helper/pages/FotoGlicose.dart';
-import 'package:personal_helper/pages/FotoPressao.dart';
-import 'package:personal_helper/pages/FotoTemperatura.dart';
-import 'package:personal_helper/pages/Perfil.dart';
-import 'package:personal_helper/pages/UserType.dart';
-import 'package:personal_helper/pages/alertas.dart';
-import 'package:personal_helper/pages/caixaRemedio.dart';
-import 'package:personal_helper/pages/calendario.dart';
-import 'package:personal_helper/pages/dados_medicos.dart';
-import 'package:personal_helper/pages/dashboard.dart';
-import 'package:personal_helper/pages/edita_remedio.dart';
-import 'package:personal_helper/pages/home_page.dart';
-import 'package:personal_helper/pages/instrucoesdadosPressao.dart';
-import 'package:personal_helper/pages/instrucoesdadosTermometro.dart';
-import 'package:personal_helper/pages/intrucoesdadosGlicose.dart';
-import 'package:personal_helper/pages/singup.dart';
-
+import 'package:personal_helper/pages/dashboard/alertas.dart';
+import 'package:personal_helper/pages/dashboard/caixaRemedio.dart';
+import 'package:personal_helper/pages/dashboard/calendario.dart';
+import 'package:personal_helper/pages/dashboard/dados_medicos.dart';
+import 'package:personal_helper/pages/dashboard/dashboard.dart';
+import 'package:personal_helper/pages/dashboard/instrucoesdadosPressao.dart';
+import 'package:personal_helper/pages/dashboard/intrucoesdadosGlicose.dart';
+import 'package:personal_helper/pages/dashboard/FotoPressao.dart';
+import 'package:personal_helper/pages/dashboard/FotoGlicose.dart';
+import 'package:personal_helper/pages/dashboard/FotoTemperatura.dart';
+import 'package:personal_helper/pages/dashboard/Perfil.dart';
+import 'package:personal_helper/pages/dashboard/instrucoesdadosTermometro.dart';
+import 'package:personal_helper/pages/dashboard/edita_remedio.dart';
+import 'package:personal_helper/pages/login_page/home_page.dart';
+import 'package:personal_helper/pages/singup_page/UserType.dart';
+import 'package:personal_helper/pages/singup_page/singup.dart';
+import 'components/tela_confirmação.dart';
 import 'components/foto_confirmacao.dart';
-import 'pages/edita_remedio.dart';
+import 'pages/dashboard/edita_remedio.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

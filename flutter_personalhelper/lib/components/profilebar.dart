@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:personal_helper/models/idoso.dart';
-import 'package:personal_helper/pages/home_page.dart';
+import 'package:personal_helper/pages/login_page/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:personal_helper/pages/dashboard.dart';
+import 'package:personal_helper/pages/dashboard/dashboard.dart';
 
 class FotoConfirmacao extends StatefulWidget {
   const FotoConfirmacao({Key? key}) : super(key: key);

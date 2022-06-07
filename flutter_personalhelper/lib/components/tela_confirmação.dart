@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:personal_helper/pages/home_page.dart';
+import 'package:personal_helper/pages/login_page/home_page.dart';
 
 class TelaConfirmacao extends StatefulWidget {
   const TelaConfirmacao({Key? key}) : super(key: key);

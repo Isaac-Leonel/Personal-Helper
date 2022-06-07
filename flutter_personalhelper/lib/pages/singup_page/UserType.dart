@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_helper/pages/singup.dart';
+import 'package:personal_helper/pages/singup_page/singup.dart';
+
+import '../dashboard/dashboard.dart';
 
 class UserType extends StatelessWidget {
   const UserType({Key? key}) : super(key: key);
