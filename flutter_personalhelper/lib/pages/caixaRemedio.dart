@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/components/profilebar.dart';
 <<<<<<< HEAD:flutter_personalhelper/lib/pages/caixaRemedio.dart
+<<<<<<< HEAD:flutter_personalhelper/lib/pages/caixaRemedio.dart
 import 'package:personal_helper/models/remedio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+=======
+>>>>>>> parent of 2f61bad (Remedios 99% funcionando):flutter_personalhelper/lib/pages/dashboard/caixaRemedio.dart
 =======
 >>>>>>> parent of 2f61bad (Remedios 99% funcionando):flutter_personalhelper/lib/pages/dashboard/caixaRemedio.dart
 
