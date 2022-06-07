@@ -3,12 +3,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:personal_helper/components/profilebar.dart';
-import 'package:personal_helper/models/idoso.dart';
 import 'package:personal_helper/models/remedio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 import '../../components/modulecardRemedio.dart';
 
