@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: elderly
+  name: elderly
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elderly
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: elderly
+    spec:
+      containers:
+      - image: 146038/elderly
+        name: elderly
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: elderly
+  name: elderly
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: elderly
+  type: ClusterIP
+status:
+  loadBalancer: {}
