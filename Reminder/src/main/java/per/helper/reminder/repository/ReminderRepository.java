@@ -18,6 +18,9 @@ public interface ReminderRepository extends JpaRepository<Reminder, Long> {
     @Query(value = "select * from reminder where cpfforreminder= :cpf",nativeQuery = true)
     Collection<Reminder> fetchAllReminders(@Param("cpf") String cpf);
 
+    @Query(value = "select * from reminder where cpfforreminder= :cpf order by dateremider DESC limit 3 ",nativeQuery = true)
+    Collection<Reminder> fetchAllRemindersThree(@Param("cpf") String cpf);
+
     @Modifying
     @Transactional
     @Query(value = "delete from reminder where id =:idMedicament and cpfforreminder =:cpf", nativeQuery = true)

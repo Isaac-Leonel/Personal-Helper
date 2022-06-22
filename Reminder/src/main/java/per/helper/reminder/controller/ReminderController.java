@@ -27,6 +27,11 @@ public class ReminderController {
         return ResponseEntity.ok(new Gson().toJson(service.fetchAllReminders(cpf)));
     }
 
+    @GetMapping("fetch_allr_reminders_three/{cpf}")
+    public ResponseEntity<Object> fetchAllRemindersThree(@PathVariable("cpf") String cpf){
+        return ResponseEntity.ok(new Gson().toJson(service.fetchAllRemindersThree(cpf)));
+    }
+
     @DeleteMapping("delete_reminder/{idMedicament}/{cpf}")
     public String deleteReminder(@PathVariable("idMedicament") Long idMedicament, @PathVariable("cpf") String cpf ){
         return service.deleteReminder(idMedicament, cpf);

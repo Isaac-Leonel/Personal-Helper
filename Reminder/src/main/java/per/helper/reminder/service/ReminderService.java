@@ -17,48 +17,66 @@ public class ReminderService {
 
     public String saveReminder(ReminderDTO reminderDTO){
         try {
-            if(ValalidateCPF.isCPF(reminderDTO.getCpfCaregiver()) == true){
+            if(ValalidateCPF.isCPF(reminderDTO.getCpfForReminder()) == true){
             Reminder reminder = new Reminder();
             reminder.setName(reminderDTO.getName());
-            String enconderData = encoder(reminderDTO.getCpfCaregiver());
+            String enconderData = encoder(reminderDTO.getCpfForReminder());
             reminder.setCpfforreminder(enconderData);
             SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            Date date = dateParser.parse(reminderDTO.getDateRemider());
+            Date date = dateParser.parse(reminderDTO.getDateRemider().toString());
             reminder.setDateremider(date);
             if (reminderDTO.getDescription() != null) {
                 reminder.setDescription(reminderDTO.getDescription());
             }
-            if (reminderDTO.getIdmedicament() != null) {
-                reminder.setIdmedicament(reminderDTO.getIdmedicament());
-            }
             repository.save(reminder);
-            return "Reminder saved!";
+            return "Lembrete salvo!";
             }
             else{
-                return "Invalid CPF!";
+                return "Erro CPF inválido!";
             }
         }catch (Exception e){
-            return "Impossible to save | " + e;
+            return "Erro Impossível salvar! ";
         }
     }
 
-    public List<ReminderDTO>  fetchAllReminders(String cpf){
+    public List<ReminderDTO> fetchAllReminders(String cpf){
         try {
             String encoderData = encoder(cpf);
-            Collection<Reminder> listReminder = repository.fetchAllReminders(encoderData);
-            ArrayList<ReminderDTO> dto = new ArrayList<>();
-            ReminderDTO reminderDTO = new ReminderDTO();
-            for (Reminder reminder: listReminder) {
-                reminderDTO.setIdmedicament(reminder.getIdmedicament());
-                reminderDTO.setDescription(reminder.getDescription());
-                reminderDTO.setName(reminder.getName());
-                String decoderData = decoder(reminder.getCpfforreminder());
-                reminderDTO.setCpfCaregiver(decoderData);
-                SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                reminderDTO.setDateRemider(dateParser.format(reminder.getDateremider()));
-                dto.add(reminderDTO);
+            Collection<Reminder> reminders = repository.fetchAllReminders(encoderData);
+            List<ReminderDTO> reminderDTOS = new ArrayList<>();
+            ReminderDTO dto;
+            for (Reminder reminder: reminders) {
+                dto = new ReminderDTO();
+                dto.setName(reminder.getName());
+                dto.setCpfForReminder(decoder(reminder.getCpfforreminder()));
+                String test = String.valueOf(reminder.getDateremider());
+                dto.setDateRemider(String.format(test, "dd/MM/yyyy HH:mm"));
+                dto.setDescription(reminder.getDescription());
+                reminderDTOS.add(dto);
             }
-            return dto;
+            return reminderDTOS;
+        }catch (Exception e){
+
+        }
+        return null;
+    }
+
+    public List<ReminderDTO> fetchAllRemindersThree(String cpf){
+        try {
+            String encoderData = encoder(cpf);
+            Collection<Reminder> reminders = repository.fetchAllRemindersThree(encoderData);
+            List<ReminderDTO> reminderDTOS = new ArrayList<>();
+            ReminderDTO dto;
+            for (Reminder reminder: reminders) {
+                dto = new ReminderDTO();
+               dto.setName(reminder.getName());
+               dto.setCpfForReminder(decoder(reminder.getCpfforreminder()));
+               String test = String.valueOf(reminder.getDateremider());
+               dto.setDateRemider(String.format(test, "dd/MM/yyyy HH:mm"));
+               dto.setDescription(reminder.getDescription());
+               reminderDTOS.add(dto);
+            }
+                return reminderDTOS;
         }catch (Exception e){
 
         }
@@ -69,10 +87,10 @@ public class ReminderService {
         try {
             String encoderData = encoder(cpf);
             repository.deleteReminder(idMedicament, encoderData);
-            return "Drug successfully deleted!!";
+            return "Remedio deletado com sucesso!!";
         }catch (Exception e){
         }
-        return "Error when deleting medicine";
+        return "Error ao deletar remédio!";
     }
 
     private String encoder(String sensitiveData){
