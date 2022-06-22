@@ -1,0 +1,27 @@
+apiVersion: 2019-12-01
+location: eastus
+name: livenesstest
+properties:
+  containers:
+    - name: medicament
+      properties:
+        image: 146038/medicament
+        command:
+          - "/bin/sh"
+          - "-c"
+          - "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
+        ports: []
+        resources:
+          requests:
+            cpu: 1.0
+            memoryInGB: 1.5
+        livenessProbe:
+          exec:
+            command:
+              - "cat"
+              - "/tmp/healthy"
+          periodSeconds: 5
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups

@@ -23,10 +23,10 @@ public class MedicamentService {
         try {
             RestTemplate restTemplate = new RestTemplate();
             String cpf = medicamento.getCpf();
-            String url = "http://localhost:8080/api/ph/elderly/validate_cpf_medicament/"+cpf;
-            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+            String url = "https://elderlyapi.calmpebble-e433262b.canadacentral.azurecontainerapps.io/api/ph/elderly/validate_cpf_medicament/"+cpf;
+            ResponseEntity<Object> response = restTemplate.getForEntity(url,Object.class);
             System.out.println(response.getBody());
-            Long idElderly = Long.valueOf(response.getBody());
+            Long idElderly = Long.valueOf(response.getBody().toString());
             if (idElderly!=null) {
                 Medicament medicament = new Medicament();
                 medicament.setDescription(medicamento.getDescription());
@@ -36,17 +36,17 @@ public class MedicamentService {
                 medicament.setCurrentamount(medicamento.getCurrentAmount());
                 medicament.setTotalamount(medicamento.getTotalAmount());
                 repository.save(medicament);
-                return "Medicament saved!";
+                return "Medicamento salvo!";
             } else {
-                return "Id elderly invalid!";
+                return "Erro Id Idoso inválido!";
             }
         } catch (Exception e){
-            return "Impossible to save | " + e;
+            return "Erro Impossível salvar! ";
         }
     }
     public List<Medicament> getMedicine(String cpfElderly){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8080/api/ph/elderly/validate_cpf_medicament/"+cpfElderly;
+        String url = "https://elderlyapi.calmpebble-e433262b.canadacentral.azurecontainerapps.io/api/ph/elderly/validate_cpf_medicament/"+cpfElderly;
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         Long idElderly = Long.valueOf(response.getBody());
         return repository.getMedicine(idElderly);
