@@ -29,4 +29,5 @@ public class ElderlyDTO {
     private String number;
     private String emergencyContact;
     private String emergencyContact2;
+    private String nameCaregiver;
 }

@@ -46,7 +46,7 @@ public interface ElderlyRepository extends JpaRepository<Elderly,  Long> {
     @Query(value = "UPDATE elderly set `tokencarigiver` = '' where `cpf`=:cpf", nativeQuery = true)
     void deleteToken( @Param("cpf") String cpf);
 
-    @Query(value = "SELECT * FROM elderly WHERE cpf = :cpf", nativeQuery = true)
-    List<Elderly> cardData(@Param("cpf") String cpf);
+    @Query(value = "SELECT * FROM elderly WHERE `cpf`=:cpf", nativeQuery = true)
+    Elderly cardData(@Param("cpf") String cpf);
 
 }

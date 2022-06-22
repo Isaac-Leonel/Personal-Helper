@@ -1,7 +1,9 @@
 package per.helper.elderly.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import per.helper.elderly.DTO.ElderlyDTO;
 import per.helper.elderly.converter.ElderlyConverter;
 import per.helper.elderly.entity.Elderly;
@@ -29,13 +31,18 @@ public class ElderlyService {
                 elderly.setCpf(encoderCPF);
                 elderly.setRg(encoderRG);
                 elderly.setPassword(encoderPass);
-                repository.save(elderly);
-                return "Elderly saved!";
+
+                if(repository.elderlyData(encoderCPF).isEmpty()){
+                    repository.save(elderly);
+                    return "Idoso salvo!";
+                }else{
+                 return "Erro Impossível salvar pois CPF já cadastrado!";
+                }
             } else{
-                return "CPF invalid!";
+                return "Erro CPF inválido!";
             }
         } catch (Exception e){
-            return "Impossible to save | " + e;
+            return "Erro Impossível salvar! ";
         }
     }
     public ElderlyDTO lookForElderly(String cpf){
@@ -93,16 +100,16 @@ public class ElderlyService {
                     repository.linkElderlyCaregiver(CPFCaregiver,cpf);
                 }
                 else {
-                    return "Incorret Token!";
+                    return "Erro Token incorreto!";
                 }
             }
             else {
-                return "Incorret CPF!";
+                return "Erro CPF incorreto!";
             }
         }catch (Exception e){
-            return "Impossible to update | " + e;
+            return "Erro Impossível vincular! ";
         }
-        return "Caregiver linked with the elderly successfully!";
+        return "Cuidador vinculado ao Idoso com sucesso!";
     }
 
     public Long validateCPFMedicament(String cpf){
@@ -129,13 +136,34 @@ public class ElderlyService {
 
     public ElderlyDTO cardData(String cpf){
         String search = encoder(cpf);
-        List<Elderly> listElderly = repository.cardData(search);
+        Collection<Elderly>  elderly = repository.elderlyData(search);
+        RestTemplate restTemplate = new RestTemplate();
+        String cpfCaregiver = null;
+        for (Elderly elderly1: elderly) {
+            cpfCaregiver = elderly1.getCpfCaregiver();
+        }
+        String url = "https://caregiverapi.calmpebble-e433262b.canadacentral.azurecontainerapps.io/api/ph/caregiver/card_data/"+cpfCaregiver;
+        ResponseEntity<Object> response = restTemplate.getForEntity(url,Object.class);
+        System.out.println(response.getBody());
         ElderlyDTO dto = new ElderlyDTO();
-        for (Elderly elderly: listElderly) {
-            dto.setName(elderly.getName());
-            dto.setCpf(decoder(elderly.getCpf()));
-            dto.setBirthday(elderly.getBirthday());
-            dto.setEmergencyContact(elderly.getEmergencycontact());
+        for (Elderly elderly1: elderly) {
+        if(cpfCaregiver != null) {
+            dto.setName(elderly1.getName());
+            dto.setCpf(decoder(elderly1.getCpf()));
+            dto.setRg(decoder(elderly1.getRg()));
+            dto.setBirthday(elderly1.getBirthday());
+            dto.setEmergencyContact(elderly1.getEmergencycontact());
+            String nameCaregiver = response.getBody().toString();
+            nameCaregiver = nameCaregiver.substring(6, nameCaregiver.length()-1);
+            dto.setNameCaregiver(nameCaregiver);
+        }else{
+            dto.setName(elderly1.getName());
+            dto.setCpf(decoder(elderly1.getCpf()));
+            dto.setRg(decoder(elderly1.getRg()));
+            dto.setBirthday(elderly1.getBirthday());
+            dto.setEmergencyContact(elderly1.getEmergencycontact());
+            dto.setNameCaregiver("Nao possui");
+        }
         }
         return dto;
     }

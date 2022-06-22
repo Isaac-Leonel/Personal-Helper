@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ElderlyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ElderlyApplication.class, args);
-		System.out.println("Não aguento mais!");
+		System.out.println("Atualizou");
 	}
 }
