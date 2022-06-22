@@ -27,12 +27,12 @@ public class CaregiverService {
                 caregiver.setCpf(encoderCPF);
                 caregiver.setPassword(encoderPass);
                 repository.save(caregiver);
-                return "Caregiver saved!";
+                return "Cuidador salvo!";
             } else{
-                return "CPF invalid!";
+                return "Erro CPF inválido!";
             }
         } catch (Exception e){
-            return "Impossible to save | " + e;
+            return "Erro Impossível salvar! ";
         }
     }
     public CaregiverDTO lookForCaregiver(String cpf){
@@ -66,7 +66,7 @@ public class CaregiverService {
 
     public List<ElderlyDTO> lookForElderlyByCaregiver(String cpf){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8080/api/ph/elderly/look_for_elderly_by_caregiver/"+cpf;
+        String url = "https://elderlyapi.calmpebble-e433262b.canadacentral.azurecontainerapps.io/api/ph/elderly/look_for_elderly_by_caregiver/"+cpf;
         ResponseEntity<Object> response = restTemplate.getForEntity(url,Object.class);
         if(response.getBody().equals(null)){
             return null;
@@ -77,10 +77,20 @@ public class CaregiverService {
 
     public String linkElderlyCaregiver(String cpfElderly, String cpfCaregiver, String token){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8080/api/ph/elderly/link_elderly_caregiver/"+cpfElderly+"/"+cpfCaregiver+"/"+token;
+        String url = "https://elderlyapi.calmpebble-e433262b.canadacentral.azurecontainerapps.io/api/ph/elderly/link_elderly_caregiver/"+cpfElderly+"/"+cpfCaregiver+"/"+token;
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         return response.getBody();
     }
+
+    public CaregiverDTO cardData(String cpfCaregiver){
+        Collection<Caregiver> listCaregiver = repository.caregiverData(cpfCaregiver);
+        CaregiverDTO dto = new CaregiverDTO();
+        for (Caregiver list: listCaregiver) {
+            dto.setName(list.getName());
+        }
+        return dto;
+    }
+
 
     private String encoder(String sensitiveData){
         return new String(Base64.getEncoder().encode(sensitiveData.getBytes()));

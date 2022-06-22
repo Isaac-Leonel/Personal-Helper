@@ -8,6 +8,7 @@ import per.helper.caregiver.entity.Caregiver;
 import per.helper.caregiver.service.CaregiverService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/api/ph/caregiver")
@@ -38,6 +39,11 @@ public class CaregiverController {
     @PatchMapping("/link_elderly_caregiver/{cpfElderly}/{cpfCaregiver}/{token}")
     public ResponseEntity<Object> linkElderlyCaregiver(@PathVariable("cpfElderly") String cpfElderly, @PathVariable("cpfCaregiver") String cpfCaregiver, @PathVariable("token") String token) {
         return ResponseEntity.ok(new Gson().toJson(service.linkElderlyCaregiver(cpfElderly, cpfCaregiver, token)));
+    }
+
+    @GetMapping("/card_data/{cpfCaregiver}")
+    public ResponseEntity<Object> cardData(@PathVariable("cpfCaregiver") String cpfCaregiver){
+        return ResponseEntity.ok(new Gson().toJson(service.cardData(cpfCaregiver)));
     }
     
 }

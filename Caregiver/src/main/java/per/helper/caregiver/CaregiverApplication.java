@@ -8,6 +8,7 @@ public class CaregiverApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CaregiverApplication.class, args);
+		System.out.println("Atualizou");
 	}
 
 }
