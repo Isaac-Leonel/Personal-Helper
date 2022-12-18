@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "905223512645",
+    "project_id": "personal-helper-885ba",
+    "storage_bucket": "personal-helper-885ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905223512645:android:aaadb4ca0afd9187fd792c",
+        "android_client_info": {
+          "package_name": "com.example.flutter_personalhelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905223512645-3fd61qjeacqsckhtnsg88s7ldi3r3e7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3jTQyG7netwo-kcwJLmsk_PPOCHAFSY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905223512645-3fd61qjeacqsckhtnsg88s7ldi3r3e7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

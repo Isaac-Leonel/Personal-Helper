@@ -7,8 +7,9 @@ import 'package:personal_helper/models/idoso.dart';
 import 'package:personal_helper/models/ngrok.dart' as ngrok;
 import 'package:personal_helper/pages/dashboard/Perfil.dart';
 import 'package:personal_helper/pages/dashboard/dashboard.dart';
-import 'package:personal_helper/pages/login_page/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../pages/login_page/home_page.dart';
 
 class ProfileBar extends StatefulWidget implements Login {
   const ProfileBar(
@@ -27,7 +28,7 @@ class _ProfileBarState extends State<ProfileBar> {
   var idosoAPI = ngrok.idoso;
   var cuidadorAPI = ngrok.cuidador;
 
-  Future<Idoso> fetchGetUserByCpf() async {
+  /* Future<Idoso> fetchGetUserByCpf() async {
     final prefs = await SharedPreferences.getInstance();
     String? value = prefs.getString("cpf");
     print(value);
@@ -38,11 +39,10 @@ class _ProfileBarState extends State<ProfileBar> {
     } else {
       throw Exception('Failed to load Idoso');
     }
-  }
+  }*/
 
   @override
   void initState() {
-    futureIdoso = fetchGetUserByCpf();
     super.initState();
   }
 
@@ -64,18 +64,18 @@ class _ProfileBarState extends State<ProfileBar> {
               )),
               widget.exibirSaud
                   ? FutureBuilder<Idoso>(
-                      future: futureIdoso,
+                      //       future: futureIdoso,
                       builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return Text(
-                            'Ola! ' + snapshot.data!.name,
-                            style: TextStyle(color: Colors.white),
-                          );
-                        } else if (snapshot.hasError) {
-                          return Text('${snapshot.error}');
-                        }
-                        return Text('');
-                      })
+                      if (snapshot.hasData) {
+                        return Text(
+                          'Ola! ' + snapshot.data!.name,
+                          style: TextStyle(color: Colors.white),
+                        );
+                      } else if (snapshot.hasError) {
+                        return Text('${snapshot.error}');
+                      }
+                      return Text('');
+                    })
                   : Text(''),
             ],
           ),

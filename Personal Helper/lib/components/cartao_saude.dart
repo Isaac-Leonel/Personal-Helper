@@ -20,28 +20,13 @@ class CartaoSaude extends StatefulWidget {
 }
 
 class _CartaoSaudeState extends State<CartaoSaude> {
-  late Future<Idoso> futureIdoso;
+  //late Future<Idoso> futureIdoso;
   var idosoAPI = ngrok.idoso;
   var cuidadorAPI = ngrok.cuidador;
-
-  Future<Idoso> fetchGetUserByCpf() async {
-    final prefs = await SharedPreferences.getInstance();
-    String? value = prefs.getString("cpf");
-    print(value);
-    final response = await http
-        .get(Uri.parse('${idosoAPI}/api/ph/elderly/card_data/${value}'));
-    print(response.body);
-    if (response.statusCode == 200) {
-      return Idoso.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('Failed to load Idoso');
-    }
-  }
 
   @override
   void initState() {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    futureIdoso = fetchGetUserByCpf();
     super.initState();
   }
 
@@ -66,23 +51,23 @@ class _CartaoSaudeState extends State<CartaoSaude> {
                     ),
                   ),
                   FutureBuilder<Idoso>(
-                      future: futureIdoso,
+                      //                     future: futureIdoso,
                       builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return Text(
-                            snapshot.data!.name,
-                            // ignore: prefer_const_constructors
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 18,
-                            ),
-                          );
-                        } else if (snapshot.hasError) {
-                          return Text('${snapshot.error}');
-                        }
-                        return Text('');
-                      }),
+                    if (snapshot.hasData) {
+                      return Text(
+                        snapshot.data!.name,
+                        // ignore: prefer_const_constructors
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                        ),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text('${snapshot.error}');
+                    }
+                    return Text('');
+                  }),
                 ],
               ),
             ),
@@ -110,74 +95,74 @@ class _CartaoSaudeState extends State<CartaoSaude> {
                       child: Row(
                         children: [
                           FutureBuilder<Idoso>(
-                              future: futureIdoso,
+                              //      future: futureIdoso,
                               builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(right: 15.0),
-                                    child: Text(
-                                      'CPF: ' + snapshot.data!.cpf,
-                                      // ignore: prefer_const_constructors
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  );
-                                } else if (snapshot.hasError) {
-                                  return Text('${snapshot.error}');
-                                }
-                                return Text('');
-                              }),
+                            if (snapshot.hasData) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 15.0),
+                                child: Text(
+                                  'CPF: ' + snapshot.data!.cpf,
+                                  // ignore: prefer_const_constructors
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              );
+                            } else if (snapshot.hasError) {
+                              return Text('${snapshot.error}');
+                            }
+                            return Text('');
+                          }),
                           FutureBuilder<Idoso>(
-                              future: futureIdoso,
+                              //       future: futureIdoso,
                               builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(right: 15.0),
-                                    child: Text(
-                                      'RG: ' + snapshot.data!.rg,
-                                      // ignore: prefer_const_constructors
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  );
-                                } else if (snapshot.hasError) {
-                                  return Text('${snapshot.error}');
-                                }
-                                return Text('');
-                              }),
+                            if (snapshot.hasData) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 15.0),
+                                child: Text(
+                                  'RG: ' + snapshot.data!.rg,
+                                  // ignore: prefer_const_constructors
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              );
+                            } else if (snapshot.hasError) {
+                              return Text('${snapshot.error}');
+                            }
+                            return Text('');
+                          }),
                         ],
                       ),
                     ),
                     Row(
                       children: [
                         FutureBuilder<Idoso>(
-                            future: futureIdoso,
+                            //  future: futureIdoso,
                             builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(right: 15.0),
-                                  child: Text(
-                                    'DATA DE NASCIMENTO: ' +
-                                        snapshot.data!.birthday,
-                                    // ignore: prefer_const_constructors
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                );
-                              } else if (snapshot.hasError) {
-                                return Text('${snapshot.error}');
-                              }
-                              return Text('');
-                            }),
+                          if (snapshot.hasData) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 15.0),
+                              child: Text(
+                                'DATA DE NASCIMENTO: ' +
+                                    snapshot.data!.birthday,
+                                // ignore: prefer_const_constructors
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            );
+                          } else if (snapshot.hasError) {
+                            return Text('${snapshot.error}');
+                          }
+                          return Text('');
+                        }),
                       ],
                     ),
                     Padding(
@@ -199,26 +184,26 @@ class _CartaoSaudeState extends State<CartaoSaude> {
                       child: Row(
                         children: [
                           FutureBuilder<Idoso>(
-                              future: futureIdoso,
+                              //      future: futureIdoso,
                               builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(right: 15.0),
-                                    child: Text(
-                                      'Cuidador: ' + snapshot.data!.caregiver,
-                                      // ignore: prefer_const_constructors
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  );
-                                } else if (snapshot.hasError) {
-                                  return Text('${snapshot.error}');
-                                }
-                                return Text('');
-                              }),
+                            if (snapshot.hasData) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 15.0),
+                                child: Text(
+                                  'Cuidador: ' + snapshot.data!.caregiver,
+                                  // ignore: prefer_const_constructors
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              );
+                            } else if (snapshot.hasError) {
+                              return Text('${snapshot.error}');
+                            }
+                            return Text('');
+                          }),
                         ],
                       ),
                     ),
@@ -232,26 +217,26 @@ class _CartaoSaudeState extends State<CartaoSaude> {
                               color: Colors.white),
                         ),
                         FutureBuilder<Idoso>(
-                            future: futureIdoso,
+                            //   future: futureIdoso,
                             builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(right: 15.0),
-                                  child: Text(
-                                    snapshot.data!.emergencycontact,
-                                    // ignore: prefer_const_constructors
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                );
-                              } else if (snapshot.hasError) {
-                                return Text('${snapshot.error}');
-                              }
-                              return Text('');
-                            }),
+                          if (snapshot.hasData) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 15.0),
+                              child: Text(
+                                snapshot.data!.emergencycontact,
+                                // ignore: prefer_const_constructors
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            );
+                          } else if (snapshot.hasError) {
+                            return Text('${snapshot.error}');
+                          }
+                          return Text('');
+                        }),
                       ],
                     ),
                   ],

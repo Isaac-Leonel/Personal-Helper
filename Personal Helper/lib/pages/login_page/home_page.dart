@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:personal_helper/models/idoso.dart';
@@ -17,6 +18,22 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   late Future<Idoso> futureIdoso;
+
+   static Future<User?> loginUsingEmailPassword({required String email, required String password, required BuildContext context}) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User? user;
+    try{
+      UserCredential userCredential = await auth.signInWithEmailAndPassword(email: email, password: password);
+      user = userCredential.user;
+
+    } on FirebaseAuthException catch (e){
+      if(e.code == 'user-not-found'){
+        print("No user found on that email");
+      }
+    }
+    return user;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -166,13 +183,15 @@ class _LoginState extends State<Login> {
               child: ButtonTheme(
                 height: 50.0,
                 child: ElevatedButton(
-                  onPressed: () =>
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Dashboard())),
+                  /*
                       {fetchAlbum(loginController.text, senhaController.text)},
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFF32A18A),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                  ),
+                        borderRadius: BorderRadius.circular(30.0)),roffodff
+                  ),*/
                   child: const Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Text(
@@ -187,11 +206,12 @@ class _LoginState extends State<Login> {
               ),
             ),
             TextButton(
-              onPressed: () {
+              onPressed: () async {
                 print('funciona');
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => UserType()),
-                );
+                User? user =  await loginUsingEmailPassword(email: loginController.text, password: senhaController.text, context: context);
+                if(user != null){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder:((context) => Dashboard())));
+                } 
               },
               child: const Text(
                 'Ainda não possui uma conta? Cadastre-se',

@@ -47,6 +47,9 @@ dependencies:
   qr_flutter: ^4.0.0
   flutter_barcode_scanner: ^2.0.0
   syncfusion_flutter_calendar: ^20.1.60
+  firebase_core: ^2.4.0
+  firebase_auth: ^4.2.1
+
 
 
 dev_dependencies:

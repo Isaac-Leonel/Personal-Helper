@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Personal Helper",
+            "cwd": "Personal Helper",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Personal Helper (profile mode)",
+            "cwd": "Personal Helper",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Personal Helper (release mode)",
+            "cwd": "Personal Helper",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

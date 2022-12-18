@@ -26,31 +26,31 @@ class _caixaRemedioState extends State<caixaRemedio> {
   var cuidadorAPI = ngrok.cuidador;
   var medicamentoAPI = ngrok.remedios;
 
-  Future fetchGetUserByCpf() async {
-    final prefs = await SharedPreferences.getInstance();
-    String? value = prefs.getString("cpf");
-    print(value);
-    final response = await http.get(
-        Uri.parse('${medicamentoAPI}/api/ph/medicament/get_medicine/${value}'));
-    if (response.statusCode == 200) {
-      return response;
-    } else {
-      print("falhou");
-    }
-  }
-
-  _getUsers() {
-    fetchGetUserByCpf().then((response) {
-      setState(() {
-        Iterable list = json.decode(response.body);
-        remedios = list.map((model) => Remedio.fromJson(model)).toList();
-      });
-    });
-  }
+ // Future fetchGetUserByCpf() async {
+ //   final prefs = await SharedPreferences.getInstance();
+ //   String? value = prefs.getString("cpf");
+ //   print(value);
+ //   final response = await http.get(
+ //       Uri.parse('${medicamentoAPI}/api/ph/medicament/get_medicine/${value}'));
+ //   if (response.statusCode == 200) {
+ ////     return response;
+ ////   } else {
+ ////     print("falhou");
+ ////   }
+ //// }
+//
+  //_getUsers() {
+  //  fetchGetUserByCpf().then((response) {
+  //    setState(() {
+  //      Iterable list = json.decode(response.body);
+  //      remedios = list.map((model) => Remedio.fromJson(model)).toList();
+  //    });
+  //  });
+  //}
 
   @override
   void initState() {
-    _getUsers();
+   // _getUsers();
     super.initState();
   }
 

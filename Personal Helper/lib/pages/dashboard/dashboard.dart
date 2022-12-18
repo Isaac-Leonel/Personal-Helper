@@ -37,7 +37,7 @@ class _DashboardState extends State<Dashboard> {
 
   var alertaAPI = ngrok.alertas;
 
-  Future fetchGetLembrete() async {
+  /*Future fetchGetLembrete() async {
     final prefs = await SharedPreferences.getInstance();
     String? value = prefs.getString("cpf");
     print(value);
@@ -58,13 +58,13 @@ class _DashboardState extends State<Dashboard> {
         lembrete = list.map((model) => Lembrete.fromJson(model)).toList();
       });
     });
-  }
+  }*/
 
   @override
   void initState() {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     getDate();
-    _getUsers();
+  //  _getUsers();
     super.initState();
   }
 

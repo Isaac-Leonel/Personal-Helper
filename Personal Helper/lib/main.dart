@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -22,6 +24,11 @@ void main() {
 class DefineUsuarioType extends StatefulWidget {
   @override
   State<DefineUsuarioType> createState() => _DefineUsuarioTypeState();
+}
+
+Future<FirebaseApp> _initializaFirebase() async {
+  FirebaseApp firebaseApp = await Firebase.initializeApp();
+  return firebaseApp;
 }
 
 class _DefineUsuarioTypeState extends State<DefineUsuarioType> {
@@ -66,19 +73,23 @@ class _DefineUsuarioTypeState extends State<DefineUsuarioType> {
     super.initState();
   }
 
+ 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color(0xFF00261d),
-        body: Center(
-          child: LoadingAnimationWidget.fourRotatingDots(
-            color: Colors.white,
-            size: 100,
-          ),
-        ),
-      ),
-    );
+        home: Scaffold(
+            backgroundColor: const Color(0xFF00261d),
+            body: FutureBuilder(builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return LoadingAnimationWidget.fourRotatingDots(
+                  color: Colors.white,
+                  size: 100,
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            })));
   }
 }
 
